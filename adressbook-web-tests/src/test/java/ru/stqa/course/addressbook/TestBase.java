@@ -138,11 +138,10 @@ public class TestBase {
       wd.findElement(By.name("homepage")).click();
       wd.findElement(By.name("homepage")).clear();
       wd.findElement(By.name("homepage")).sendKeys(contactData.getHomepage());
-      //fillBirthday();
-      //fillAnniversary();
+
       wd.findElement(By.name("new_group")).click();
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getNewgroup());
-      wd.findElement(By.xpath("(//option[@value='11'])[3]")).click();
+
       wd.findElement(By.name("address2")).click();
       wd.findElement(By.name("address2")).clear();
       wd.findElement(By.name("address2")).sendKeys(contactData.getAddress2());
@@ -176,5 +175,13 @@ public class TestBase {
 
     protected void initContactCreation() {
       wd.findElement(By.linkText("add new")).click();
+    }
+
+    protected void deleteSelectedGroups() {
+      wd.findElement(By.name("delete")).click();
+    }
+
+    protected void selectGroup() {
+      wd.findElement(By.name("selected[]")).click();
     }
 }
