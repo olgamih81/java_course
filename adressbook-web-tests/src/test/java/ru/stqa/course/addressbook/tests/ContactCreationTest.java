@@ -7,8 +7,8 @@ public class ContactCreationTest extends TestBase {
 
   @Test
   public void testContactCreation() throws Exception {
-    app.initContactCreation();
-    app.fillContactForm(
+    app.getContactHelper().initContactCreation();
+    app.getContactHelper().fillContactForm(
             new ContactData(
                     "test_name",
                     "test_middle",
@@ -30,10 +30,10 @@ public class ContactCreationTest extends TestBase {
                     "test_phone2",
                     "test_notes"));
 
-    app.fillBirthday("15", "January", "2001");
-    app.fillAnniversary("18", "December", "2020");
-    app.submitContact();
-    app.returnToContactPage();
+    app.getContactHelper().fillBirthday("15", "January", "2001");
+    app.getContactHelper().fillAnniversary("18", "December", "2020");
+    app.getContactHelper().submitContact();
+    app.getContactHelper().returnToContactPage();
   }
 }
 

@@ -5,7 +5,11 @@ import org.openqa.selenium.WebDriver;
 import ru.stqa.course.addressbook.model.GroupData;
 
 public class GroupHelper {
-    protected WebDriver wd;
+    private WebDriver wd;
+
+    public GroupHelper(WebDriver wd) {
+        this.wd=wd;
+    }
 
     public void returnToGroupPage() {
       wd.findElement(By.linkText("group page")).click();
