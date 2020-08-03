@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+	<title>Untitled Test Suite</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Group Creation Tests</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://localhost/addressbook/<datalist><option>https://localhost/addressbook/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=user<datalist><option>name=user</option><option>//input[@name='user']</option><option>//form[@id='LoginForm']/input</option><option>//input</option><option>css=input[name="user"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=user<datalist><option>name=user</option><option>//input[@name='user']</option><option>//form[@id='LoginForm']/input</option><option>//input</option><option>css=input[name="user"]</option></datalist></td><td>admin</td>
+</tr>
+<tr><td>click</td><td>name=pass<datalist><option>name=pass</option><option>//input[@name='pass']</option><option>//form[@id='LoginForm']/input[2]</option><option>//input[2]</option><option>css=input[name="pass"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=pass<datalist><option>name=pass</option><option>//input[@name='pass']</option><option>//form[@id='LoginForm']/input[2]</option><option>//input[2]</option><option>css=input[name="pass"]</option></datalist></td><td>secret</td>
+</tr>
+<tr><td>click</td><td>//input[@value='Login']<datalist><option>//input[@value='Login']</option><option>//form[@id='LoginForm']/input[3]</option><option>//input[3]</option><option>css=input[type="submit"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=groups<datalist><option>link=groups</option><option>//a[contains(text(),'groups')]</option><option>//div[@id='nav']/ul/li[3]/a</option><option>//a[contains(@href, 'group.php')]</option><option>//li[3]/a</option><option>css=li.admin &gt; a</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=new<datalist><option>name=new</option><option>//input[@name='new']</option><option>//div[@id='content']/form/input</option><option>//div[4]/form/input</option><option>css=input[name="new"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=group_name<datalist><option>name=group_name</option><option>//input[@name='group_name']</option><option>//div[@id='content']/form/input</option><option>//div[4]/form/input</option><option>css=input[name="group_name"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=group_name<datalist><option>name=group_name</option><option>//input[@name='group_name']</option><option>//div[@id='content']/form/input</option><option>//div[4]/form/input</option><option>css=input[name="group_name"]</option></datalist></td><td>Test1</td>
+</tr>
+<tr><td>click</td><td>name=group_header<datalist><option>name=group_header</option><option>//textarea[@name='group_header']</option><option>//div[@id='content']/form/textarea</option><option>//textarea</option><option>css=textarea[name="group_header"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=group_header<datalist><option>name=group_header</option><option>//textarea[@name='group_header']</option><option>//div[@id='content']/form/textarea</option><option>//textarea</option><option>css=textarea[name="group_header"]</option></datalist></td><td>test2</td>
+</tr>
+<tr><td>click</td><td>name=group_footer<datalist><option>name=group_footer</option><option>//textarea[@name='group_footer']</option><option>//div[@id='content']/form/textarea[2]</option><option>//textarea[2]</option><option>css=textarea[name="group_footer"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=group_footer<datalist><option>name=group_footer</option><option>//textarea[@name='group_footer']</option><option>//div[@id='content']/form/textarea[2]</option><option>//textarea[2]</option><option>css=textarea[name="group_footer"]</option></datalist></td><td>test3</td>
+</tr>
+<tr><td>click</td><td>name=submit<datalist><option>name=submit</option><option>//input[@name='submit']</option><option>//div[@id='content']/form/input[2]</option><option>//input[2]</option><option>css=input[name="submit"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=Logout<datalist><option>link=Logout</option><option>//a[contains(text(),'Logout')]</option><option>//a[@onclick='document.logout.submit();']</option><option>//div[@id='top']/form/a</option><option>//a[contains(@href, '#')]</option><option>//a</option><option>css=a</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Contact Creation Test</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://localhost/addressbook/<datalist><option>https://localhost/addressbook/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=add new<datalist><option>link=add new</option><option>//a[contains(text(),'add new')]</option><option>//div[@id='nav']/ul/li[2]/a</option><option>//a[contains(@href, 'edit.php')]</option><option>//li[2]/a</option><option>css=li.all &gt; a</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=firstname<datalist><option>name=firstname</option><option>//input[@name='firstname']</option><option>//div[@id='content']/form/input[3]</option><option>//input[3]</option><option>css=input[name="firstname"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=firstname<datalist><option>name=firstname</option><option>//input[@name='firstname']</option><option>//div[@id='content']/form/input[3]</option><option>//input[3]</option><option>css=input[name="firstname"]</option></datalist></td><td>test_name</td>
+</tr>
+<tr><td>click</td><td>name=middlename<datalist><option>name=middlename</option><option>//input[@name='middlename']</option><option>//div[@id='content']/form/input[4]</option><option>//input[4]</option><option>css=input[name="middlename"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=middlename<datalist><option>name=middlename</option><option>//input[@name='middlename']</option><option>//div[@id='content']/form/input[4]</option><option>//input[4]</option><option>css=input[name="middlename"]</option></datalist></td><td>test_middle</td>
+</tr>
+<tr><td>click</td><td>name=lastname<datalist><option>name=lastname</option><option>//input[@name='lastname']</option><option>//div[@id='content']/form/input[5]</option><option>//input[5]</option><option>css=input[name="lastname"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=lastname<datalist><option>name=lastname</option><option>//input[@name='lastname']</option><option>//div[@id='content']/form/input[5]</option><option>//input[5]</option><option>css=input[name="lastname"]</option></datalist></td><td>test_lastname</td>
+</tr>
+<tr><td>click</td><td>name=nickname<datalist><option>name=nickname</option><option>//input[@name='nickname']</option><option>//div[@id='content']/form/input[6]</option><option>//input[6]</option><option>css=input[name="nickname"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=nickname<datalist><option>name=nickname</option><option>//input[@name='nickname']</option><option>//div[@id='content']/form/input[6]</option><option>//input[6]</option><option>css=input[name="nickname"]</option></datalist></td><td>test_nickname</td>
+</tr>
+<tr><td>click</td><td>name=title<datalist><option>name=title</option><option>//input[@name='title']</option><option>//div[@id='content']/form/input[8]</option><option>//input[8]</option><option>css=input[name="title"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=title<datalist><option>name=title</option><option>//input[@name='title']</option><option>//div[@id='content']/form/input[8]</option><option>//input[8]</option><option>css=input[name="title"]</option></datalist></td><td>tes_ttitle</td>
+</tr>
+<tr><td>click</td><td>name=company<datalist><option>name=company</option><option>//input[@name='company']</option><option>//div[@id='content']/form/input[9]</option><option>//input[9]</option><option>css=input[name="company"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=company<datalist><option>name=company</option><option>//input[@name='company']</option><option>//div[@id='content']/form/input[9]</option><option>//input[9]</option><option>css=input[name="company"]</option></datalist></td><td>test_company</td>
+</tr>
+<tr><td>click</td><td>name=address<datalist><option>name=address</option><option>//textarea[@name='address']</option><option>//div[@id='content']/form/textarea</option><option>//textarea</option><option>css=textarea[name="address"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=address<datalist><option>name=address</option><option>//textarea[@name='address']</option><option>//div[@id='content']/form/textarea</option><option>//textarea</option><option>css=textarea[name="address"]</option></datalist></td><td>test_address</td>
+</tr>
+<tr><td>click</td><td>name=home<datalist><option>name=home</option><option>//input[@name='home']</option><option>//div[@id='content']/form/input[10]</option><option>//input[10]</option><option>css=input[name="home"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=home<datalist><option>name=home</option><option>//input[@name='home']</option><option>//div[@id='content']/form/input[10]</option><option>//input[10]</option><option>css=input[name="home"]</option></datalist></td><td>test_home</td>
+</tr>
+<tr><td>click</td><td>name=mobile<datalist><option>name=mobile</option><option>//input[@name='mobile']</option><option>//div[@id='content']/form/input[11]</option><option>//input[11]</option><option>css=input[name="mobile"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=mobile<datalist><option>name=mobile</option><option>//input[@name='mobile']</option><option>//div[@id='content']/form/input[11]</option><option>//input[11]</option><option>css=input[name="mobile"]</option></datalist></td><td>test_mobile</td>
+</tr>
+<tr><td>click</td><td>name=work<datalist><option>name=work</option><option>//input[@name='work']</option><option>//div[@id='content']/form/input[12]</option><option>//input[12]</option><option>css=input[name="work"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=work<datalist><option>name=work</option><option>//input[@name='work']</option><option>//div[@id='content']/form/input[12]</option><option>//input[12]</option><option>css=input[name="work"]</option></datalist></td><td>test_work</td>
+</tr>
+<tr><td>click</td><td>name=fax<datalist><option>name=fax</option><option>//input[@name='fax']</option><option>//div[@id='content']/form/input[13]</option><option>//input[13]</option><option>css=input[name="fax"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=fax<datalist><option>name=fax</option><option>//input[@name='fax']</option><option>//div[@id='content']/form/input[13]</option><option>//input[13]</option><option>css=input[name="fax"]</option></datalist></td><td>test_fax</td>
+</tr>
+<tr><td>click</td><td>name=email<datalist><option>name=email</option><option>//input[@name='email']</option><option>//div[@id='content']/form/input[14]</option><option>//input[14]</option><option>css=input[name="email"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=email<datalist><option>name=email</option><option>//input[@name='email']</option><option>//div[@id='content']/form/input[14]</option><option>//input[14]</option><option>css=input[name="email"]</option></datalist></td><td>test_email</td>
+</tr>
+<tr><td>click</td><td>name=email2<datalist><option>name=email2</option><option>//input[@name='email2']</option><option>//div[@id='content']/form/input[15]</option><option>//input[15]</option><option>css=input[name="email2"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=email2<datalist><option>name=email2</option><option>//input[@name='email2']</option><option>//div[@id='content']/form/input[15]</option><option>//input[15]</option><option>css=input[name="email2"]</option></datalist></td><td>test_email2</td>
+</tr>
+<tr><td>click</td><td>name=email3<datalist><option>name=email3</option><option>//input[@name='email3']</option><option>//div[@id='content']/form/input[16]</option><option>//input[16]</option><option>css=input[name="email3"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=email3<datalist><option>name=email3</option><option>//input[@name='email3']</option><option>//div[@id='content']/form/input[16]</option><option>//input[16]</option><option>css=input[name="email3"]</option></datalist></td><td>test_email3</td>
+</tr>
+<tr><td>click</td><td>name=homepage<datalist><option>name=homepage</option><option>//input[@name='homepage']</option><option>//div[@id='content']/form/input[17]</option><option>//input[17]</option><option>css=input[name="homepage"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=homepage<datalist><option>name=homepage</option><option>//input[@name='homepage']</option><option>//div[@id='content']/form/input[17]</option><option>//input[17]</option><option>css=input[name="homepage"]</option></datalist></td><td>test_homepage</td>
+</tr>
+<tr><td>click</td><td>name=bday<datalist><option>name=bday</option><option>//select[@name='bday']</option><option>//div[@id='content']/form/select</option><option>//select</option><option>css=select[name="bday"]</option></datalist></td><td></td>
+</tr>
+<tr><td>select</td><td>name=bday<datalist><option>name=bday</option><option>//select[@name='bday']</option><option>//div[@id='content']/form/select</option><option>//select</option><option>css=select[name="bday"]</option></datalist></td><td>label=1</td>
+</tr>
+<tr><td>click</td><td>//option[@value='1']<datalist><option>//option[@value='1']</option><option>//div[@id='content']/form/select/option[3]</option><option>//option[3]</option><option>css=option[value="1"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=bmonth<datalist><option>name=bmonth</option><option>//select[@name='bmonth']</option><option>//div[@id='content']/form/select[2]</option><option>//select[2]</option><option>css=select[name="bmonth"]</option></datalist></td><td></td>
+</tr>
+<tr><td>select</td><td>name=bmonth<datalist><option>name=bmonth</option><option>//select[@name='bmonth']</option><option>//div[@id='content']/form/select[2]</option><option>//select[2]</option><option>css=select[name="bmonth"]</option></datalist></td><td>label=January</td>
+</tr>
+<tr><td>click</td><td>//option[@value='January']<datalist><option>//option[@value='January']</option><option>//div[@id='content']/form/select[2]/option[2]</option><option>//select[2]/option[2]</option><option>css=option[value="January"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=byear<datalist><option>name=byear</option><option>//input[@name='byear']</option><option>//div[@id='content']/form/input[18]</option><option>//input[18]</option><option>css=input[name="byear"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=byear<datalist><option>name=byear</option><option>//input[@name='byear']</option><option>//div[@id='content']/form/input[18]</option><option>//input[18]</option><option>css=input[name="byear"]</option></datalist></td><td>2000</td>
+</tr>
+<tr><td>click</td><td>name=aday<datalist><option>name=aday</option><option>//select[@name='aday']</option><option>//div[@id='content']/form/select[3]</option><option>//select[3]</option><option>css=select[name="aday"]</option></datalist></td><td></td>
+</tr>
+<tr><td>select</td><td>name=aday<datalist><option>name=aday</option><option>//select[@name='aday']</option><option>//div[@id='content']/form/select[3]</option><option>//select[3]</option><option>css=select[name="aday"]</option></datalist></td><td>label=10</td>
+</tr>
+<tr><td>click</td><td>xpath=(//option[@value='10'])[2]<datalist><option>xpath=(//option[@value='10'])[2]</option><option>//div[@id='content']/form/select[3]/option[12]</option><option>//select[3]/option[12]</option><option>css=select[name="aday"] &gt; option[value="10"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=amonth<datalist><option>name=amonth</option><option>//select[@name='amonth']</option><option>//div[@id='content']/form/select[4]</option><option>//select[4]</option><option>css=select[name="amonth"]</option></datalist></td><td></td>
+</tr>
+<tr><td>select</td><td>name=amonth<datalist><option>name=amonth</option><option>//select[@name='amonth']</option><option>//div[@id='content']/form/select[4]</option><option>//select[4]</option><option>css=select[name="amonth"]</option></datalist></td><td>label=December</td>
+</tr>
+<tr><td>click</td><td>xpath=(//option[@value='December'])[2]<datalist><option>xpath=(//option[@value='December'])[2]</option><option>//div[@id='content']/form/select[4]/option[13]</option><option>//select[4]/option[13]</option><option>css=select[name="amonth"] &gt; option[value="December"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=ayear<datalist><option>name=ayear</option><option>//input[@name='ayear']</option><option>//div[@id='content']/form/input[19]</option><option>//input[19]</option><option>css=input[name="ayear"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=ayear<datalist><option>name=ayear</option><option>//input[@name='ayear']</option><option>//div[@id='content']/form/input[19]</option><option>//input[19]</option><option>css=input[name="ayear"]</option></datalist></td><td>2020</td>
+</tr>
+<tr><td>click</td><td>name=new_group<datalist><option>name=new_group</option><option>//select[@name='new_group']</option><option>//div[@id='content']/form/select[5]</option><option>//select[5]</option><option>css=select[name="new_group"]</option></datalist></td><td></td>
+</tr>
+<tr><td>select</td><td>name=new_group<datalist><option>name=new_group</option><option>//select[@name='new_group']</option><option>//div[@id='content']/form/select[5]</option><option>//select[5]</option><option>css=select[name="new_group"]</option></datalist></td><td>label=TestGroupName1</td>
+</tr>
+<tr><td>click</td><td>xpath=(//option[@value='11'])[3]<datalist><option>xpath=(//option[@value='11'])[3]</option><option>//div[@id='content']/form/select[5]/option[4]</option><option>//select[5]/option[4]</option><option>css=select[name="new_group"] &gt; option[value="11"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=address2<datalist><option>name=address2</option><option>//textarea[@name='address2']</option><option>//div[@id='content']/form/textarea[2]</option><option>//textarea[2]</option><option>css=textarea[name="address2"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=address2<datalist><option>name=address2</option><option>//textarea[@name='address2']</option><option>//div[@id='content']/form/textarea[2]</option><option>//textarea[2]</option><option>css=textarea[name="address2"]</option></datalist></td><td>test_address_secondary</td>
+</tr>
+<tr><td>click</td><td>name=phone2<datalist><option>name=phone2</option><option>//input[@name='phone2']</option><option>//div[@id='content']/form/input[20]</option><option>//input[20]</option><option>css=input[name="phone2"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=phone2<datalist><option>name=phone2</option><option>//input[@name='phone2']</option><option>//div[@id='content']/form/input[20]</option><option>//input[20]</option><option>css=input[name="phone2"]</option></datalist></td><td>test_home_secondary</td>
+</tr>
+<tr><td>click</td><td>name=notes<datalist><option>name=notes</option><option>//textarea[@name='notes']</option><option>//div[@id='content']/form/textarea[3]</option><option>//textarea[3]</option><option>css=textarea[name="notes"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=notes<datalist><option>name=notes</option><option>//textarea[@name='notes']</option><option>//div[@id='content']/form/textarea[3]</option><option>//textarea[3]</option><option>css=textarea[name="notes"]</option></datalist></td><td>test_notes</td>
+</tr>
+<tr><td>click</td><td>xpath=(//input[@name='submit'])[2]<datalist><option>xpath=(//input[@name='submit'])[2]</option><option>//div[@id='content']/form/input[21]</option><option>//input[21]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=home page<datalist><option>link=home page</option><option>//a[contains(text(),'home page')]</option><option>//div[@id='content']/div/i/a[2]</option><option>//a[contains(@href, 'index.php')]</option><option>//a[2]</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Group Deletion Tests</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://localhost/addressbook/<datalist><option>https://localhost/addressbook/</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=user<datalist><option>name=user</option><option>//input[@name='user']</option><option>//form[@id='LoginForm']/input</option><option>//input</option><option>css=input[name="user"]</option></datalist></td><td>admin</td>
+</tr>
+<tr><td>click</td><td>name=pass<datalist><option>name=pass</option><option>//input[@name='pass']</option><option>//form[@id='LoginForm']/input[2]</option><option>//input[2]</option><option>css=input[name="pass"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=pass<datalist><option>name=pass</option><option>//input[@name='pass']</option><option>//form[@id='LoginForm']/input[2]</option><option>//input[2]</option><option>css=input[name="pass"]</option></datalist></td><td>secret</td>
+</tr>
+<tr><td>click</td><td>//input[@value='Login']<datalist><option>//input[@value='Login']</option><option>//form[@id='LoginForm']/input[3]</option><option>//input[3]</option><option>css=input[type="submit"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=groups<datalist><option>link=groups</option><option>//a[contains(text(),'groups')]</option><option>//div[@id='nav']/ul/li[3]/a</option><option>//a[contains(@href, 'group.php')]</option><option>//li[3]/a</option><option>css=li.admin &gt; a</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=selected[]<datalist><option>name=selected[]</option><option>//input[@name='selected[]']</option><option>//div[@id='content']/form/span/input</option><option>//span/input</option><option>css=input[name="selected[]"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=delete<datalist><option>name=delete</option><option>//input[@name='delete']</option><option>//div[@id='content']/form/input[2]</option><option>//input[2]</option><option>css=input[name="delete"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=group page<datalist><option>link=group page</option><option>//a[contains(text(),'group page')]</option><option>//div[@id='content']/div/i/a</option><option>xpath=(//a[contains(@href, 'group.php')])[2]</option><option>//i/a</option><option>css=i &gt; a</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">EditContact</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://localhost/<datalist><option>https://localhost/</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=user<datalist><option>name=user</option><option>//input[@name='user']</option><option>//form[@id='LoginForm']/input</option><option>//input</option><option>css=input[name="user"]</option></datalist></td><td>admin</td>
+</tr>
+<tr><td>click</td><td>name=pass<datalist><option>name=pass</option><option>//input[@name='pass']</option><option>//form[@id='LoginForm']/input[2]</option><option>//input[2]</option><option>css=input[name="pass"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=pass<datalist><option>name=pass</option><option>//input[@name='pass']</option><option>//form[@id='LoginForm']/input[2]</option><option>//input[2]</option><option>css=input[name="pass"]</option></datalist></td><td>secret</td>
+</tr>
+<tr><td>click</td><td>//input[@value='Login']<datalist><option>//input[@value='Login']</option><option>//form[@id='LoginForm']/input[3]</option><option>//input[3]</option><option>css=input[type="submit"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=home<datalist><option>link=home</option><option>//a[contains(text(),'home')]</option><option>//div[@id='nav']/ul/li/a</option><option>//a[contains(@href, './')]</option><option>//li/a</option><option>css=li &gt; a</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=11<datalist><option>id=11</option><option>name=selected[]</option><option>//input[@id='11']</option><option>//table[@id='maintable']/tbody/tr[2]/td/input</option><option>//td/input</option><option>css=#11</option></datalist></td><td></td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>//input[@value='Delete']<datalist><option>//input[@value='Delete']</option><option>//div[@id='content']/form[2]/div[2]/input</option><option>//div[2]/input</option></datalist></td><td></td>
+</tr>
+<tr><td>assertConfirmation</td><td>Delete 1 addresses?<datalist><option>Delete 1 addresses?</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Untitled Test Case</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://localhost/<datalist><option>https://localhost/</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=13<datalist><option>id=13</option><option>name=selected[]</option><option>//input[@id='13']</option><option>//table[@id='maintable']/tbody/tr[2]/td/input</option><option>//td/input</option><option>css=#13</option></datalist></td><td></td>
+</tr>
+<tr><td>chooseOkOnNextConfirmation</td><td><datalist><option></option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>//input[@value='Delete']<datalist><option>//input[@value='Delete']</option><option>//div[@id='content']/form[2]/div[2]/input</option><option>//div[2]/input</option></datalist></td><td></td>
+</tr>
+<tr><td>assertConfirmation</td><td>Delete 1 addresses?<datalist><option>Delete 1 addresses?</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Untitled Test Case</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://localhost/group.php<datalist><option>https://localhost/group.php</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=groups<datalist><option>link=groups</option><option>//a[contains(text(),'groups')]</option><option>//div[@id='nav']/ul/li[3]/a</option><option>//a[contains(@href, 'group.php')]</option><option>//li[3]/a</option><option>css=li.admin &gt; a</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=selected[]<datalist><option>name=selected[]</option><option>//input[@name='selected[]']</option><option>//div[@id='content']/form/span/input</option><option>//span/input</option><option>css=input[name="selected[]"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>xpath=(//input[@name='delete'])[2]<datalist><option>xpath=(//input[@name='delete'])[2]</option><option>//div[@id='content']/form/input[5]</option><option>//input[5]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=group page<datalist><option>link=group page</option><option>//a[contains(text(),'group page')]</option><option>//div[@id='content']/div/i/a</option><option>xpath=(//a[contains(@href, 'group.php')])[2]</option><option>//i/a</option><option>css=i &gt; a</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Contact Modification Test</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://localhost/?group=<datalist><option>https://localhost/?group=</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>//img[@alt='Edit']<datalist><option>//img[@alt='Edit']</option><option>//table[@id='maintable']/tbody/tr[2]/td[8]/a/img</option><option>//td[8]/a/img</option><option>css=img[alt="Edit"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=firstname<datalist><option>name=firstname</option><option>//input[@name='firstname']</option><option>//div[@id='content']/form/input[3]</option><option>//input[3]</option><option>css=input[name="firstname"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=firstname<datalist><option>name=firstname</option><option>//input[@name='firstname']</option><option>//div[@id='content']/form/input[3]</option><option>//input[3]</option><option>css=input[name="firstname"]</option></datalist></td><td>2</td>
+</tr>
+<tr><td>click</td><td>name=middlename<datalist><option>name=middlename</option><option>//input[@name='middlename']</option><option>//div[@id='content']/form/input[4]</option><option>//input[4]</option><option>css=input[name="middlename"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=middlename<datalist><option>name=middlename</option><option>//input[@name='middlename']</option><option>//div[@id='content']/form/input[4]</option><option>//input[4]</option><option>css=input[name="middlename"]</option></datalist></td><td>2</td>
+</tr>
+<tr><td>click</td><td>name=lastname<datalist><option>name=lastname</option><option>//input[@name='lastname']</option><option>//div[@id='content']/form/input[5]</option><option>//input[5]</option><option>css=input[name="lastname"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=lastname<datalist><option>name=lastname</option><option>//input[@name='lastname']</option><option>//div[@id='content']/form/input[5]</option><option>//input[5]</option><option>css=input[name="lastname"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=lastname<datalist><option>name=lastname</option><option>//input[@name='lastname']</option><option>//div[@id='content']/form/input[5]</option><option>//input[5]</option><option>css=input[name="lastname"]</option></datalist></td><td>3</td>
+</tr>
+<tr><td>click</td><td>name=update<datalist><option>name=update</option><option>//input[@name='update']</option><option>//div[@id='content']/form/input</option><option>//div[4]/form/input</option><option>css=input[name="update"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=home page<datalist><option>link=home page</option><option>//a[contains(text(),'home page')]</option><option>//div[@id='content']/div/i/a</option><option>//a[contains(@href, 'index.php')]</option><option>//i/a</option><option>css=i &gt; a</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Untitled Test Case</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://localhost/index.php<datalist><option>https://localhost/index.php</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=user<datalist><option>name=user</option><option>//input[@name='user']</option><option>//form[@id='LoginForm']/input</option><option>//input</option><option>css=input[name="user"]</option></datalist></td><td>admin</td>
+</tr>
+<tr><td>click</td><td>name=pass<datalist><option>name=pass</option><option>//input[@name='pass']</option><option>//form[@id='LoginForm']/input[2]</option><option>//input[2]</option><option>css=input[name="pass"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=pass<datalist><option>name=pass</option><option>//input[@name='pass']</option><option>//form[@id='LoginForm']/input[2]</option><option>//input[2]</option><option>css=input[name="pass"]</option></datalist></td><td>secret</td>
+</tr>
+<tr><td>click</td><td>//input[@value='Login']<datalist><option>//input[@value='Login']</option><option>//form[@id='LoginForm']/input[3]</option><option>//input[3]</option><option>css=input[type="submit"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>id=12<datalist><option>id=12</option><option>//input[@id='12']</option><option>//table[@id='maintable']/tbody/tr[5]/td/input</option><option>//tr[5]/td/input</option><option>css=#12</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=firstname<datalist><option>name=firstname</option><option>//input[@name='firstname']</option><option>//div[@id='content']/form/input[3]</option><option>//input[3]</option><option>css=input[name="firstname"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=firstname<datalist><option>name=firstname</option><option>//input[@name='firstname']</option><option>//div[@id='content']/form/input[3]</option><option>//input[3]</option><option>css=input[name="firstname"]</option></datalist></td><td>w111</td>
+</tr>
+<tr><td>click</td><td>name=middlename<datalist><option>name=middlename</option><option>//input[@name='middlename']</option><option>//div[@id='content']/form/input[4]</option><option>//input[4]</option><option>css=input[name="middlename"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=middlename<datalist><option>name=middlename</option><option>//input[@name='middlename']</option><option>//div[@id='content']/form/input[4]</option><option>//input[4]</option><option>css=input[name="middlename"]</option></datalist></td><td>w222</td>
+</tr>
+<tr><td>click</td><td>name=lastname<datalist><option>name=lastname</option><option>//input[@name='lastname']</option><option>//div[@id='content']/form/input[5]</option><option>//input[5]</option><option>css=input[name="lastname"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=lastname<datalist><option>name=lastname</option><option>//input[@name='lastname']</option><option>//div[@id='content']/form/input[5]</option><option>//input[5]</option><option>css=input[name="lastname"]</option></datalist></td><td>w333</td>
+</tr>
+<tr><td>click</td><td>name=nickname<datalist><option>name=nickname</option><option>//input[@name='nickname']</option><option>//div[@id='content']/form/input[6]</option><option>//input[6]</option><option>css=input[name="nickname"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=nickname<datalist><option>name=nickname</option><option>//input[@name='nickname']</option><option>//div[@id='content']/form/input[6]</option><option>//input[6]</option><option>css=input[name="nickname"]</option></datalist></td><td>w444</td>
+</tr>
+<tr><td>click</td><td>name=update<datalist><option>name=update</option><option>//input[@name='update']</option><option>//div[@id='content']/form/input</option><option>//div[4]/form/input</option><option>css=input[name="update"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=home page<datalist><option>link=home page</option><option>//a[contains(text(),'home page')]</option><option>//div[@id='content']/div/i/a</option><option>//a[contains(@href, 'index.php')]</option><option>//i/a</option><option>css=i &gt; a</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Untitled Test Case</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://localhost/index.php<datalist><option>https://localhost/index.php</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>xpath=(//img[@alt='Edit'])[3]<datalist><option>xpath=(//img[@alt='Edit'])[3]</option><option>//table[@id='maintable']/tbody/tr[4]/td[8]/a/img</option><option>//tr[4]/td[8]/a/img</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>name=firstname<datalist><option>name=firstname</option><option>//input[@name='firstname']</option><option>//div[@id='content']/form/input[3]</option><option>//input[3]</option><option>css=input[name="firstname"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=firstname<datalist><option>name=firstname</option><option>//input[@name='firstname']</option><option>//div[@id='content']/form/input[3]</option><option>//input[3]</option><option>css=input[name="firstname"]</option></datalist></td><td>test_name123</td>
+</tr>
+<tr><td>click</td><td>name=middlename<datalist><option>name=middlename</option><option>//input[@name='middlename']</option><option>//div[@id='content']/form/input[4]</option><option>//input[4]</option><option>css=input[name="middlename"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=middlename<datalist><option>name=middlename</option><option>//input[@name='middlename']</option><option>//div[@id='content']/form/input[4]</option><option>//input[4]</option><option>css=input[name="middlename"]</option></datalist></td><td>test_middle123</td>
+</tr>
+<tr><td>click</td><td>name=lastname<datalist><option>name=lastname</option><option>//input[@name='lastname']</option><option>//div[@id='content']/form/input[5]</option><option>//input[5]</option><option>css=input[name="lastname"]</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=lastname<datalist><option>name=lastname</option><option>//input[@name='lastname']</option><option>//div[@id='content']/form/input[5]</option><option>//input[5]</option><option>css=input[name="lastname"]</option></datalist></td><td>test_lastname123</td>
+</tr>
+<tr><td>click</td><td>name=update<datalist><option>name=update</option><option>//input[@name='update']</option><option>//div[@id='content']/form/input</option><option>//div[4]/form/input</option><option>css=input[name="update"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=home page<datalist><option>link=home page</option><option>//a[contains(text(),'home page')]</option><option>//div[@id='content']/div/i/a</option><option>//a[contains(@href, 'index.php')]</option><option>//i/a</option><option>css=i &gt; a</option></datalist></td><td></td>
+</tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">home</td></tr>
+</thead>
+<tbody>
+</tbody></table>
+</body>
+</html>
