@@ -2,11 +2,19 @@ package ru.stqa.course.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.course.addressbook.model.ContactData;
+//import ru.stqa.course.addressbook.model.GroupData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
+
+  private List<WebElement> elements;
+  private List<WebElement> elements1;
 
   public ContactHelper(WebDriver wd) {
     super(wd);
@@ -85,8 +93,8 @@ public class ContactHelper extends HelperBase {
     type(By.name("middlename"), lastName);
   }
 
-  public void selectedContact() {
-    wd.findElements(By.name("selected[]")).get(0).click();
+  public void selectedContact(int index) {
+    wd.findElements(By.name("selected[]")).get(index).click();
   }
 
   public void deletedContact() {
@@ -112,6 +120,23 @@ public class ContactHelper extends HelperBase {
 
     public int getContactCount() {
     return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public List<ContactData> getContactList() {
+    List<ContactData> contact = new ArrayList<>();
+    List<WebElement> elements = wd.findElements(By.name("entry"));
+
+    for (WebElement row : elements) {
+        List<WebElement> cells = row.findElements(By.tagName("td"));
+        String id = row.findElement(By.tagName("input")).getAttribute("value");
+        String name = cells.get(2).getText();
+        //String lname = cells.get(3).getText();
+        ContactData cont= new ContactData(id, name, null, null, null, null, null,
+                null, null, null, null, null, null, null, null, null,
+                null, null, null, null);
+        contact.add(cont);
+      }
+    return contact;
     }
 }
 
