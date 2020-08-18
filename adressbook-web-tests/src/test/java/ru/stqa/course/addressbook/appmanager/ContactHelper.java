@@ -80,8 +80,9 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("home"));
   }
 
-  public void editContact() {
-    click(By.xpath("//img[@alt='Edit']"));
+  public void editContact(int index) {
+    var row = wd.findElements(By.name("entry")).get(index);
+    row.findElement(By.cssSelector("img[title='Edit']")).click();
   }
 
   public void updateContact() {
