@@ -129,10 +129,10 @@ public class ContactHelper extends HelperBase {
 
     for (WebElement row : elements) {
         List<WebElement> cells = row.findElements(By.tagName("td"));
-        String id = row.findElement(By.tagName("input")).getAttribute("value");
+        int id = Integer.parseInt(row.findElement(By.tagName("input")).getAttribute("value"));
         String name = cells.get(2).getText();
-        //String lname = cells.get(3).getText();
-        ContactData cont= new ContactData(id, name, null, null, null, null, null,
+        String lname = cells.get(1).getText();
+        ContactData cont= new ContactData(id, name, null, lname, null, null, null,
                 null, null, null, null, null, null, null, null, null,
                 null, null, null, null);
         contact.add(cont);
