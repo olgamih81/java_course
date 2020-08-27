@@ -1,11 +1,17 @@
 package ru.stqa.course.addressbook.tests;
 
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.course.addressbook.model.ContactData;
+import ru.stqa.course.addressbook.model.Contacts;
 
 import java.util.Set;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.*;
 
 public class ContactModificationTests extends TestBase {
     @BeforeMethod
@@ -24,7 +30,7 @@ public class ContactModificationTests extends TestBase {
 
     @Test
     public void testContactModification() {
-        Set<ContactData> before = app.contact().all();
+        Contacts before = app.contact().all();
         ContactData modifiedContact = before.iterator().next(); //выбор элемента
         ContactData contact = new ContactData().withId(modifiedContact.getId()).
                 withFirstname("test_name2").withMiddlename("test_middle2").withLastname("test_lastname2").withNickname("test_nickname2").
@@ -35,11 +41,13 @@ public class ContactModificationTests extends TestBase {
                 withNewgroup("TestGroupName1").withNotes("test_notes2");
         app.contact().modify(contact);
 
-        Set<ContactData> after = app.contact().all();
-        Assert.assertEquals(after.size(), before.size());
+        Contacts after = app.contact().all();
+        assertThat(after.size(), equalTo(before.size()));
+        assertThat(after, equalTo(before.withOut(modifiedContact).withAdded(contact)));
 
+        /*Assert.assertEquals(after.size(), before.size());
         before.remove(modifiedContact);
         before.add(contact);
-        Assert.assertEquals(before, after);
+        Assert.assertEquals(before, after);*/
     }
 }
