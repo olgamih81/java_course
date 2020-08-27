@@ -9,7 +9,9 @@ import ru.stqa.course.addressbook.model.ContactData;
 //import ru.stqa.course.addressbook.model.GroupData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -76,13 +78,20 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
-  public void goContactHome() {
+  public void home() {
     click(By.linkText("home"));
   }
 
-  public void editContact(int index) {
-    var row = wd.findElements(By.name("entry")).get(index);
-    row.findElement(By.cssSelector("img[title='Edit']")).click();
+  public void selectedContact(int index) {
+    wd.findElements(By.name("selected[]")).get(index).click();
+  }
+
+  private void selectedContactById(int id) {
+    wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+  }
+
+  public void editContact(int id) {
+    wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
   }
 
   public void updateContact() {
@@ -92,10 +101,6 @@ public class ContactHelper extends HelperBase {
   public void editContactForm(String firstName, String lastName) {
     type(By.name("firstname"), firstName);
     type(By.name("middlename"), lastName);
-  }
-
-  public void selectedContact(int index) {
-    wd.findElements(By.name("selected[]")).get(index).click();
   }
 
   public void deletedContact() {
@@ -110,7 +115,7 @@ public class ContactHelper extends HelperBase {
     return isElementPresent(By.name("selected[]"));
   }
 
-  public void createContact(ContactData contact) {
+  public void create(ContactData contact) {
     initContactCreation();
     fillContactForm(contact, true);
     fillBirthday("15", "January", "2001");
@@ -119,25 +124,65 @@ public class ContactHelper extends HelperBase {
     returnToContactPage();
   }
 
-    public int getContactCount() {
+  public void modify(ContactData contact) {
+    selectedContactById(contact.getId());
+    editContact(contact.getId());
+    //ContactData contact = new ContactData().
+    //        withId(before.get(index).getId()).withFirstname("test1").withMiddlename("test2").withLastname("test3");
+    fillContactForm(contact, false);
+    updateContact();
+    returnToContactPage();
+    //return contact;
+  }
+
+  public void delete(int index) {
+    selectedContact(index);
+    deletedContact();
+    alertContactDeleted();
+    home();
+  }
+
+  public void delete(ContactData contact) {
+    selectedContactById(contact.getId());
+    deletedContact();
+    alertContactDeleted();
+    home();
+  }
+
+  public int getContactCount() {
     return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<ContactData> getContactList() {
+  public List<ContactData> list() {
     List<ContactData> contact = new ArrayList<>();
     List<WebElement> elements = wd.findElements(By.name("entry"));
 
     for (WebElement row : elements) {
         List<WebElement> cells = row.findElements(By.tagName("td"));
         int id = Integer.parseInt(row.findElement(By.tagName("input")).getAttribute("value"));
-        String name = cells.get(2).getText();
         String lname = cells.get(1).getText();
-        ContactData cont= new ContactData(id, name, null, lname, null, null, null,
-                null, null, null, null, null, null, null, null, null,
-                null, null, null, null);
+        String name  = cells.get(2).getText();
+
+        ContactData cont= new ContactData().withId(id).withFirstname(name).withLastname(lname);
         contact.add(cont);
       }
     return contact;
     }
+
+  public Set<ContactData> all() {
+    Set<ContactData> contact = new HashSet<ContactData>();
+    List<WebElement> elements = wd.findElements(By.name("entry"));
+
+    for (WebElement row : elements) {
+      List<WebElement> cells = row.findElements(By.tagName("td"));
+      int id = Integer.parseInt(row.findElement(By.tagName("input")).getAttribute("value"));
+      String name = cells.get(2).getText();
+      String lname = cells.get(1).getText();
+      ContactData cont= new ContactData().withId(id).withFirstname(name).withLastname(lname);
+      contact.add(cont);
+    }
+    return contact;
+  }
+
 }
 

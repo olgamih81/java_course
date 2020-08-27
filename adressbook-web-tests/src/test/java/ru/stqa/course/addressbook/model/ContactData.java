@@ -3,71 +3,125 @@ package ru.stqa.course.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-    private int id;
-    private final String firstname;
-    private final String middlename;
-    private final String lastname;
-    private final String nickname;
-    private final String tittle;
-    private final String company;
-    private final String address;
-    private final String home;
-    private final String mobile;
-    private final String work;
-    private final String fax;
-    private final String email;
-    private final String email2;
-    private final String email3;
-    private final String homepage;
-    private final String newgroup;
-    private final String address2;
-    private final String phone2;
-    private final String notes;
+    private int id=Integer.MAX_VALUE;
+    private String firstname;
+    private String middlename;
+    private String lastname;
+    private String nickname;
+    private String tittle;
+    private String company;
+    private String address;
+    private String home;
+    private String mobile;
+    private String work;
+    private String fax;
+    private String email;
+    private String email2;
+    private String email3;
+    private String homepage;
+    private String newgroup;
+    private String address2;
+    private String phone2;
+    private String notes;
 
-    public ContactData(String firstname, String middlename, String lastname, String nickname, String tittle, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String newgroup, String address2, String phone2, String notes) {
-        this.id=Integer.MAX_VALUE;
-        this.firstname = firstname;
-        this.middlename = middlename;
-        this.lastname = lastname;
-        this.nickname = nickname;
-        this.tittle = tittle;
-        this.company = company;
-        this.address = address;
-        this.home = home;
-        this.mobile = mobile;
-        this.work = work;
-        this.fax = fax;
-        this.email = email;
-        this.email2 = email2;
-        this.email3 = email3;
-        this.homepage = homepage;
-        this.newgroup = newgroup;
-        this.address2 = address2;
-        this.phone2 = phone2;
-        this.notes = notes;
+    public ContactData withId(int id) {
+        this.id = id;
+        return this;
     }
 
-    public ContactData(int id, String firstname, String middlename, String lastname, String nickname, String tittle, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String newgroup, String address2, String phone2, String notes) {
-        this.id=id;
+    public ContactData withFirstname(String firstname) {
         this.firstname = firstname;
+        return this;
+    }
+
+    public ContactData withMiddlename(String middlename) {
         this.middlename = middlename;
+        return this;
+    }
+
+    public ContactData withLastname(String lastname) {
         this.lastname = lastname;
+        return this;
+    }
+
+    public ContactData withNickname(String nickname) {
         this.nickname = nickname;
+        return this;
+    }
+
+    public ContactData withTittle(String tittle) {
         this.tittle = tittle;
+        return this;
+    }
+
+    public ContactData withCompany(String company) {
         this.company = company;
+        return this;
+    }
+
+    public ContactData withAddress(String address) {
         this.address = address;
+        return this;
+    }
+
+    public ContactData withHome(String home) {
         this.home = home;
+        return this;
+    }
+
+    public ContactData withMobile(String mobile) {
         this.mobile = mobile;
+        return this;
+    }
+
+    public ContactData withWork(String work) {
         this.work = work;
+        return this;
+    }
+
+    public ContactData withFax(String fax) {
         this.fax = fax;
+        return this;
+    }
+
+    public ContactData withEmail(String email) {
         this.email = email;
+        return this;
+    }
+
+    public ContactData withEmail2(String email2) {
         this.email2 = email2;
+        return this;
+    }
+
+    public ContactData withEmail3(String email3) {
         this.email3 = email3;
+        return this;
+    }
+
+    public ContactData withHomepage(String homepage) {
         this.homepage = homepage;
+        return this;
+    }
+
+    public ContactData withNewgroup(String newgroup) {
         this.newgroup = newgroup;
+        return this;
+    }
+
+    public ContactData withAddress2(String address2) {
         this.address2 = address2;
+        return this;
+    }
+
+    public ContactData withPhone2(String phone2) {
         this.phone2 = phone2;
+        return this;
+    }
+
+    public ContactData withNotes(String notes) {
         this.notes = notes;
+        return this;
     }
 
     public int getId() {
@@ -79,13 +133,14 @@ public class ContactData {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return Objects.equals(firstname, that.firstname) &&
+        return id == that.id &&
+                Objects.equals(firstname, that.firstname) &&
                 Objects.equals(lastname, that.lastname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstname, lastname);
+        return Objects.hash(id, firstname, lastname);
     }
 
     @Override

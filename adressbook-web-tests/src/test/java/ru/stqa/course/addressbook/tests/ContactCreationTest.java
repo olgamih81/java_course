@@ -6,41 +6,28 @@ import ru.stqa.course.addressbook.model.ContactData;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 public class ContactCreationTest extends TestBase {
 
   @Test
   public void testContactCreation() throws Exception {
-    app.getContactHelper().goContactHome();
-    List<ContactData> before = app.getContactHelper().getContactList();
-    ContactData contact = new ContactData(
-            "test_name",
-            "test_middle",
-            "test_lastname",
-            "test_nickname",
-            "tes_ttitle",
-            "test_company",
-            "test_address",
-            "test_home",
-            "test_mobile",
-            "test_work",
-            "test_fax",
-            "test_email",
-            "test_email2",
-            "test_email3",
-            "test_homepage",
-            "TestGroupName1", // надо сделать получение по xpath
-            "test_address2",
-            "test_phone2",
-            "test_notes");
-    app.getContactHelper().createContact(contact);
-    List<ContactData> after = app.getContactHelper().getContactList();
-    Assert.assertEquals(after.size(), before.size() + 1);
-    before.add(contact);
+    app.contact().home();
+    Set<ContactData> before = app.contact().all();
+    ContactData contact = new ContactData().
+            withFirstname("test_name").withMiddlename("test_middle").withLastname("test_lastname").withNickname("test_nickname").
+            withTittle("tes_ttitle").withCompany("test_company").withAddress("test_address").withHome("test_home").
+            withMobile("test_mobile").withWork("test_work").withFax("test_fax").
+            withEmail("test_email").withEmail2("test_email2").withEmail3("test_email3").
+            withHomepage("test_homepage").withAddress2("test_address2").withPhone2("test_phone2").
+            withNewgroup("TestGroupName1").withNotes("test_notes");
 
-    Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
-    before.sort(byId);
-    after.sort(byId);
+    app.contact().create(contact);
+    Set<ContactData> after = app.contact().all();
+    Assert.assertEquals(after.size(), before.size() + 1);
+
+    contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt());
+    before.add(contact);
     Assert.assertEquals(before, after);
   }
 }
