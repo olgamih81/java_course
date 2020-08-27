@@ -47,7 +47,6 @@ public class ContactHelper extends HelperBase {
     type(By.name("email3"), contactData.getEmail3());
     type(By.name("homepage"), contactData.getHomepage());
 
-    //click(By.name("new_group"));
    if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getNewgroup());
     } else {
@@ -98,21 +97,12 @@ public class ContactHelper extends HelperBase {
     click(By.name("update"));
   }
 
-  public void editContactForm(String firstName, String lastName) {
-    type(By.name("firstname"), firstName);
-    type(By.name("middlename"), lastName);
-  }
-
   public void deletedContact() {
     click(By.xpath("//input[@value='Delete']"));
   }
 
   public void alertContactDeleted() {
     wd.switchTo().alert().accept();
-  }
-
-  public boolean existenceOfContact() {
-    return isElementPresent(By.name("selected[]"));
   }
 
   public void create(ContactData contact) {
@@ -132,7 +122,6 @@ public class ContactHelper extends HelperBase {
     fillContactForm(contact, false);
     updateContact();
     returnToContactPage();
-    //return contact;
   }
 
   public void delete(int index) {
@@ -148,10 +137,6 @@ public class ContactHelper extends HelperBase {
     alertContactDeleted();
     home();
   }
-
-  public int getContactCount() {
-    return wd.findElements(By.name("selected[]")).size();
-    }
 
   public List<ContactData> list() {
     List<ContactData> contact = new ArrayList<>();

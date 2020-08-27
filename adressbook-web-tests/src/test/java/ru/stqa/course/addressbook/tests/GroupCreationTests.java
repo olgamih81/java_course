@@ -1,9 +1,11 @@
 package ru.stqa.course.addressbook.tests;
 
 import org.testng.Assert;
+
 import org.testng.annotations.Test;
 import ru.stqa.course.addressbook.model.GroupData;
 import java.util.Set;
+import java.util.regex.Matcher;
 
 public class GroupCreationTests extends TestBase {
 
@@ -19,5 +21,6 @@ public class GroupCreationTests extends TestBase {
     group.withId(after.stream().mapToInt((g)->g.getId()).max().getAsInt());
     before.add(group);
     Assert.assertEquals(before, after);
+
    }
 }
