@@ -40,12 +40,13 @@ public class ContactModificationTests extends TestBase {
                 withHomepage("test_homepage2").withAddress2("test_address22").withPhone2("test_phone22").
                 withNewgroup("TestGroupName1").withNotes("test_notes2");
         app.contact().modify(contact);
-
+        assertThat(app.contact().count(), equalTo(before.size()));
         Contacts after = app.contact().all();
-        assertThat(after.size(), equalTo(before.size()));
+
         assertThat(after, equalTo(before.withOut(modifiedContact).withAdded(contact)));
 
-        /*Assert.assertEquals(after.size(), before.size());
+        /*assertThat(after.size(), equalTo(before.size()));
+        Assert.assertEquals(after.size(), before.size());
         before.remove(modifiedContact);
         before.add(contact);
         Assert.assertEquals(before, after);*/

@@ -172,5 +172,8 @@ public class ContactHelper extends HelperBase {
     return contactCache;
   }
 
+  public int count() {
+    return wd.findElements(By.name("selected[]")).size();
+  }
 }
 
