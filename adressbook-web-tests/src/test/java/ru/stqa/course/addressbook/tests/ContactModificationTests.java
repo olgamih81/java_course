@@ -20,10 +20,10 @@ public class ContactModificationTests extends TestBase {
         if (app.contact().all().size() == 0) {
             app.contact().create(new ContactData().
                     withFirstname("test_name").withMiddlename("test_middle").withLastname("test_lastname").withNickname("test_nickname").
-                    withTittle("tes_ttitle").withCompany("test_company").withAddress("test_address").withHome("test_home").
-                    withMobile("test_mobile").withWork("test_work").withFax("test_fax").
-                    withEmail("test_email").withEmail2("test_email2").withEmail3("test_email3").
-                    withHomepage("test_homepage").withAddress2("test_address2").withPhone2("test_phone2").
+                    withTittle("test_title").withCompany("test_company").withAddress("test_address").
+                    //withHome("test_home").withMobile("test_mobile").withWork("test_work").withPhone2("test_phone2").
+                    withFax("test_fax").withEmail("test_email").withEmail2("test_email2").withEmail3("test_email3").
+                    withHomepage("test_homepage").withAddress2("test_address2").
                     withNewgroup("TestGroupName1").withNotes("test_notes"));
         }
     }
@@ -34,10 +34,10 @@ public class ContactModificationTests extends TestBase {
         ContactData modifiedContact = before.iterator().next(); //выбор элемента
         ContactData contact = new ContactData().withId(modifiedContact.getId()).
                 withFirstname("test_name2").withMiddlename("test_middle2").withLastname("test_lastname2").withNickname("test_nickname2").
-                withTittle("tes_ttitle2").withCompany("test_company2").withAddress("test_address2").withHome("test_home2").
-                withMobile("test_mobile2").withWork("test_work2").withFax("test_fax2").
-                withEmail("test_email2").withEmail2("test_email22").withEmail3("test_email32").
-                withHomepage("test_homepage2").withAddress2("test_address22").withPhone2("test_phone22").
+                withTittle("test_title2").withCompany("test_company2").withAddress("test_address2").
+                //withHome("test_home2").withMobile("test_mobile2").withWork("test_work2").withPhone2("test_phone22").
+                withFax("test_fax2").withEmail("test_email2").withEmail2("test_email22").withEmail3("test_email32").
+                withHomepage("test_homepage2").withAddress2("test_address22").
                 withNewgroup("TestGroupName1").withNotes("test_notes2");
         app.contact().modify(contact);
         assertThat(app.contact().count(), equalTo(before.size()));

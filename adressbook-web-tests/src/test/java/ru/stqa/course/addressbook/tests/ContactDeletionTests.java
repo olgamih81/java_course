@@ -20,10 +20,10 @@ public class ContactDeletionTests extends TestBase {
         if (app.contact().all().size() == 0) {
             app.contact().create(new ContactData().
                     withFirstname("test_name").withMiddlename("test_middle").withLastname("test_lastname").withNickname("test_nickname").
-                    withTittle("tes_ttitle").withCompany("test_company").withAddress("test_address").withHome("test_home").
-                    withMobile("test_mobile").withWork("test_work").withFax("test_fax").
-                    withEmail("test_email").withEmail2("test_email2").withEmail3("test_email3").
-                    withHomepage("test_homepage").withAddress2("test_address2").withPhone2("test_phone2").
+                    withTittle("test_title").withCompany("test_company").withAddress("test_address").
+                    //withHome("test_home").withMobile("test_mobile").withWork("test_work").withPhone2("test_phone2").
+                    withFax("test_fax").withEmail("test_email").withEmail2("test_email2").withEmail3("test_email3").
+                    withHomepage("test_homepage").withAddress2("test_address2").
                     withNewgroup("TestGroupName1").withNotes("test_notes"));
         }
     }
