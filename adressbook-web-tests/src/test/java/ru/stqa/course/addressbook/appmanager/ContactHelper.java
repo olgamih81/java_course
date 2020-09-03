@@ -10,11 +10,10 @@ import ru.stqa.course.addressbook.model.Contacts;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class ContactHelper extends HelperBase {
 
-  private List<WebElement> elements;
-  private List<WebElement> elements1;
+  //private List<WebElement> elements;
+  //private List<WebElement> elements1;
 
   public ContactHelper(WebDriver wd) {
     super(wd);
@@ -44,6 +43,7 @@ public class ContactHelper extends HelperBase {
     type(By.name("email2"), contactData.getEmail2());
     type(By.name("email3"), contactData.getEmail3());
     type(By.name("homepage"), contactData.getHomepage());
+    attach(By.name("photo"), contactData.getPhoto());
 
    if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getNewgroup());
@@ -54,6 +54,7 @@ public class ContactHelper extends HelperBase {
     type(By.name("phone2"), contactData.getPhone2());
     type(By.name("notes"), contactData.getNotes());
   }
+
 
   public void fillAnniversary(String aday, String amonth, String ayear) {
     click(By.name("aday"));
@@ -164,9 +165,6 @@ public class ContactHelper extends HelperBase {
       String allPhones = cells.get(5).getText();
       ContactData cont = new ContactData().withId(id).withFirstname(name).withLastname(lname).
               withAllPhones(allPhones);
-      /*String[] phones = cells.get(5).getText().split("\n");
-      ContactData cont= new ContactData().withId(id).withFirstname(name).withLastname(lname).
-              withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]).withPhone2(phones[3]);*/
       contactCache.add(cont);
     }
     return contactCache;
