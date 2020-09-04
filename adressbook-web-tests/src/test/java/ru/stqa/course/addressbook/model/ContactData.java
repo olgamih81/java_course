@@ -26,6 +26,17 @@ public class ContactData {
     private String notes;
     private String allPhones;
 
+    public String getAllEmails() {
+        return allEmails;
+    }
+
+    public ContactData withAllEmails(String allEmails) {
+        this.allEmails = allEmails;
+        return  this;
+    }
+
+    private String allEmails;
+
     public File getPhoto() {
         return photo;
     }
