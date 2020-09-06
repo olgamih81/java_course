@@ -17,22 +17,37 @@ public class ContactData {
     private String middlename;
     @Expose
     private String lastname;
+    @Expose
     private String nickname;
+    @Expose
     private String tittle;
+    @Expose
     private String company;
     @Expose
     private String address;
+    @Expose
     private String homePhone;
+    @Expose
     private String mobilePhone;
+    @Expose
     private String workPhone;
+    @Expose
     private String fax;
+    @Expose
     private String email;
+    @Expose
     private String email2;
+    @Expose
     private String email3;
+    @Expose
     private String homepage;
+    @Expose
     private String newgroup;
+    @Expose
     private String address2;
+    @Expose
     private String phone2;
+    @Expose
     private String notes;
     private String allPhones;
 

@@ -1,37 +1,59 @@
 [
   {
-    "id": 2147483647,
     "firstname": "testFirstname 0",
     "middlename": "testMiddlename 0",
     "lastname": "testLastname 0",
-    "address": "testAddress 0"
+    "nickname": "testNickname 0",
+    "tittle": "testTittle 0",
+    "company": "testCompany 0",
+    "address": "testAddress 0",
+    "homePhone": "111-11-10",
+    "mobilePhone": "222 22 20",
+    "workPhone": "3333330",
+    "fax": "testFax 0",
+    "email": "test@Email 0",
+    "email2": "test@Email2 0",
+    "email3": "test@Email3 0",
+    "homepage": "testHomepage 0",
+    "newgroup": "TestGroupName1",
+    "phone2": "444-44-40"
   },
   {
-    "id": 2147483647,
     "firstname": "testFirstname 1",
     "middlename": "testMiddlename 1",
     "lastname": "testLastname 1",
-    "address": "testAddress 1"
+    "nickname": "testNickname 1",
+    "tittle": "testTittle 1",
+    "company": "testCompany 1",
+    "address": "testAddress 1",
+    "homePhone": "111-11-11",
+    "mobilePhone": "222 22 21",
+    "workPhone": "3333331",
+    "fax": "testFax 1",
+    "email": "test@Email 1",
+    "email2": "test@Email2 1",
+    "email3": "test@Email3 1",
+    "homepage": "testHomepage 1",
+    "newgroup": "TestGroupName1",
+    "phone2": "444-44-41"
   },
   {
-    "id": 2147483647,
     "firstname": "testFirstname 2",
     "middlename": "testMiddlename 2",
     "lastname": "testLastname 2",
-    "address": "testAddress 2"
-  },
-  {
-    "id": 2147483647,
-    "firstname": "testFirstname 3",
-    "middlename": "testMiddlename 3",
-    "lastname": "testLastname 3",
-    "address": "testAddress 3"
-  },
-  {
-    "id": 2147483647,
-    "firstname": "testFirstname 4",
-    "middlename": "testMiddlename 4",
-    "lastname": "testLastname 4",
-    "address": "testAddress 4"
+    "nickname": "testNickname 2",
+    "tittle": "testTittle 2",
+    "company": "testCompany 2",
+    "address": "testAddress 2",
+    "homePhone": "111-11-12",
+    "mobilePhone": "222 22 22",
+    "workPhone": "3333332",
+    "fax": "testFax 2",
+    "email": "test@Email 2",
+    "email2": "test@Email2 2",
+    "email3": "test@Email3 2",
+    "homepage": "testHomepage 2",
+    "newgroup": "TestGroupName1",
+    "phone2": "444-44-42"
   }
 ]

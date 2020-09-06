@@ -19,7 +19,6 @@ public class ContactDateGenerator {
 
     @Parameter(names = "-c", description = "Contact count")
     public int count;
-
     @Parameter(names = "-f", description = "Target file")
     public String file;
     @Parameter(names = "-d", description = "Date format")
@@ -48,7 +47,6 @@ public class ContactDateGenerator {
         } else {
             System.out.println("Unknown format: " + format);
         }
-
     }
 
     private void saveAsJson(List<ContactData> contacts, File file) throws IOException {
@@ -84,21 +82,29 @@ public class ContactDateGenerator {
             .withLastname(String.format("testLastname %s", i))
             .withAddress(String.format("testAddress %s", i))
             .withMiddlename(String.format("testMiddlename %s", i))
-            /*.withHomepage(String.format("testHomepage %s", i))
+            .withHomepage(String.format("testHomepage %s", i))
             .withNickname(String.format("testNickname %s", i))
             .withTittle(String.format("testTittle %s", i))
-            .withHomePhone(String.format("testHomePhone %s", i))
-            .withMobilePhone(String.format("testMobilePhone %s", i))
-            .withWorkPhone(String.format("testWorkPhone %s", i))
-            .withPhone2(String.format("testPhone2 %s", i))
-
+            .withHomePhone(String.format("111-11-1%s", i))
+            .withMobilePhone(String.format("222 22 2%s", i))
+            .withWorkPhone(String.format("333333%s", i))
+            .withPhone2(String.format("444-44-4%s", i))
+            .withNewgroup(String.format("TestGroupName1"))
             .withEmail(String.format("test@Email %s", i))
             .withEmail2(String.format("test@Email2 %s", i))
             .withEmail3(String.format("test@Email3 %s", i))
             .withCompany(String.format("testCompany %s", i))
-            .withFax(String.format("testFax %s", i))*/
+            .withFax(String.format("testFax %s", i))
             );
         }
         return contacts;
     }
 }
+ /*   ContactData contact = new ContactData().
+            withFirstname("test_name").withMiddlename("test_middle").withLastname("test_lastname").withNickname("test_nickname").
+            withTittle("tes_ttitle").withCompany("test_company").withAddress("test_address").
+            //withHome("test_home").withMobile("test_mobile").withWork("test_work").withPhone2("test_phone2").
+                    withFax("test_fax").withEmail("test_email").withEmail2("test_email2").withEmail3("test_email3").
+                    withHomepage("test_homepage").withAddress2("test_address2").
+                    withNewgroup("TestGroupName1").withNotes("test_notes")
+            .withPhoto(photo);*/
