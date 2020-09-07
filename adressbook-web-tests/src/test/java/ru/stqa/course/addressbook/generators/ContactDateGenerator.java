@@ -52,27 +52,27 @@ public class ContactDateGenerator {
     private void saveAsJson(List<ContactData> contacts, File file) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
         String json = gson.toJson(contacts);
-        Writer writer = new FileWriter(file);
-        writer.write(json);
-        writer.close();
+        try(Writer writer = new FileWriter(file)) {
+            writer.write(json);
+        }
     }
 
     private void saveAsXml(List<ContactData> contacts, File file) throws IOException {
         XStream stream = new XStream();
         stream.processAnnotations(ContactData.class);
         String xml = stream.toXML(contacts);
-        Writer writer = new FileWriter(file);
-        writer.write(xml);
-        writer.close();
+        try(Writer writer = new FileWriter(file)) {
+            writer.write(xml);
+        }
     }
 
     private static void saveAsCsv(List<ContactData> contacts, File file) throws IOException {
-        Writer writer = new FileWriter(file);
-        for (ContactData contact : contacts) {
-            writer.write(String.format("%s;%s;%s;%s \n", contact.getFirstname(), contact.getLastname(),
-                    contact.getAddress(), contact.getMiddlename()));
+        try(Writer writer = new FileWriter(file)) {
+            for (ContactData contact : contacts) {
+                writer.write(String.format("%s;%s;%s;%s \n", contact.getFirstname(), contact.getLastname(),
+                        contact.getAddress(), contact.getMiddlename()));
+            }
         }
-        writer.close();
     }
 
     private static List<ContactData> generateContacts(int count) {
@@ -100,11 +100,3 @@ public class ContactDateGenerator {
         return contacts;
     }
 }
- /*   ContactData contact = new ContactData().
-            withFirstname("test_name").withMiddlename("test_middle").withLastname("test_lastname").withNickname("test_nickname").
-            withTittle("tes_ttitle").withCompany("test_company").withAddress("test_address").
-            //withHome("test_home").withMobile("test_mobile").withWork("test_work").withPhone2("test_phone2").
-                    withFax("test_fax").withEmail("test_email").withEmail2("test_email2").withEmail3("test_email3").
-                    withHomepage("test_homepage").withAddress2("test_address2").
-                    withNewgroup("TestGroupName1").withNotes("test_notes")
-            .withPhoto(photo);*/

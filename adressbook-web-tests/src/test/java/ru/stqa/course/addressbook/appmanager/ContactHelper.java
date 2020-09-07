@@ -12,8 +12,6 @@ import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
-  //private List<WebElement> elements;
-  //private List<WebElement> elements1;
 
   public ContactHelper(WebDriver wd) {
     super(wd);

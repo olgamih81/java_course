@@ -17,3 +17,30 @@ dependencies {
     implementation 'com.google.code.gson:gson-parent:2.8.6'
     implementation 'com.google.code.gson:gson:2.8.6'
 }
+
+task testContacts(type : Test) {
+    useTestNG{
+        suites 'src/test/resources/testng-contacts.xml'
+    }
+
+    if (project.hasProperty("browser")) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty("target")) {
+        systemProperty 'target', "${target}"
+    }
+}
+
+
+task testGroups(type : Test) {
+    useTestNG{
+        suites 'src/test/resources/testng-groups.xml'
+    }
+
+    if (project.hasProperty("browser")) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty("target")) {
+        systemProperty 'target', "${target}"
+    }
+}

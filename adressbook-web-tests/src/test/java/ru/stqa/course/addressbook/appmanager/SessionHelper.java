@@ -13,7 +13,5 @@ public class  SessionHelper extends HelperBase {
         type(By.name("user"), username);
         type(By.name("pass"), password);
         click(By.xpath("//input[@value='Login']"));
-        //click(By.name("Login"));
-        //wd.findElements(By.name("Login[]")).get(0).click();
     }
 }
