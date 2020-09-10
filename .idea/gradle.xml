@@ -13,12 +13,10 @@
             <option value="$PROJECT_DIR$/adressbook-web-test" />
           </set>
         </option>
-        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="delegatedBuild" value="false" />
         <option name="testRunner" value="PLATFORM" />
-        <option name="disableWrapperSourceDistributionNotification" value="true" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/adressbook-web-tests" />
         <option name="modules">
@@ -26,7 +24,6 @@
             <option value="$PROJECT_DIR$/adressbook-web-tests" />
           </set>
         </option>
-        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="delegatedBuild" value="false" />
@@ -38,7 +35,6 @@
             <option value="$PROJECT_DIR$/sandbox" />
           </set>
         </option>
-        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>
