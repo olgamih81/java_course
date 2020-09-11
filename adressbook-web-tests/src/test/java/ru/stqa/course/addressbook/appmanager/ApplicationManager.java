@@ -9,7 +9,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
@@ -23,6 +22,7 @@ public class ApplicationManager {
     private SessionHelper sessionHelper;
     private String browser;
     private final Properties properties;
+    private DbHelper DbHelper;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -32,6 +32,9 @@ public class ApplicationManager {
     public void init() throws IOException {
         String target = System.getProperty("target", "local");
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+
+        DbHelper = new DbHelper();
+
         if (browser.equals(BrowserType.FIREFOX)) {
             wd = new FirefoxDriver();
         } else if (browser.equals(BrowserType.CHROME)) {
@@ -40,7 +43,6 @@ public class ApplicationManager {
             wd = new InternetExplorerDriver();
         }
 
-
         wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         wd.get(properties.getProperty("web.baseUrl"));
         groupHelper = new GroupHelper(wd);
@@ -48,6 +50,7 @@ public class ApplicationManager {
         sessionHelper = new SessionHelper(wd);
         contactHelper = new ContactHelper(wd);
         sessionHelper.login(properties.getProperty("web.admLogin"), properties.getProperty("web.admPassword"));
+
     }
 
     public void stop() {
@@ -74,5 +77,9 @@ public class ApplicationManager {
 
     public ContactHelper contact() {
         return contactHelper;
+    }
+
+    public DbHelper db() {
+        return DbHelper;
     }
 }

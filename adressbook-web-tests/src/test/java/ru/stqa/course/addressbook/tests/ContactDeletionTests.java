@@ -11,12 +11,12 @@ import static org.hamcrest.MatcherAssert.*;
 public class ContactDeletionTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
-        app.contact().home();
-        if (app.contact().all().size() == 0) {
+        if (app.db().contacts().size() == 0) {
+            app.contact().home();
             app.contact().create(new ContactData().
                     withFirstname("test_name").withMiddlename("test_middle").withLastname("test_lastname").withNickname("test_nickname").
                     withTittle("test_title").withCompany("test_company").withAddress("test_address").
-                    //withHome("test_home").withMobile("test_mobile").withWork("test_work").withPhone2("test_phone2").
+                    withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withPhone2("444").
                     withFax("test_fax").withEmail("test_email").withEmail2("test_email2").withEmail3("test_email3").
                     withHomepage("test_homepage").withAddress2("test_address2").
                     withNewgroup("TestGroupName1").withNotes("test_notes"));
@@ -25,11 +25,13 @@ public class ContactDeletionTests extends TestBase {
 
     @Test
     public void testContactDeleted() {
-        Contacts before = app.contact().all();
+        //Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         ContactData deletedContact = before.iterator().next();
         app.contact().delete(deletedContact);
         assertThat(app.contact().count(), equalTo(before.size() - 1));
-        Contacts after = app.contact().all();
+        //Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
 
         assertThat(after, equalTo(before.withOut(deletedContact)));
     }

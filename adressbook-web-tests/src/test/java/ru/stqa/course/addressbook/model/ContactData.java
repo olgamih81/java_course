@@ -3,53 +3,135 @@ package ru.stqa.course.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
 @XStreamAlias("contact")
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
     @XStreamOmitField
+    @Id
+    @Column(name = "id")
     private int id = Integer.MAX_VALUE;
+
     @Expose
+    @Column(name = "firstname")
     private String firstname;
+
     @Expose
+    @Column(name = "middlename")
     private String middlename;
+
     @Expose
+    @Column(name = "lastname")
     private String lastname;
+
     @Expose
+    @Column(name = "nickname")
     private String nickname;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id &&
+                Objects.equals(firstname, that.firstname) &&
+                Objects.equals(middlename, that.middlename) &&
+                Objects.equals(lastname, that.lastname) &&
+                Objects.equals(nickname, that.nickname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstname, middlename, lastname, nickname);
+    }
+
     @Expose
+    @Column(name = "title")
     private String tittle;
+
     @Expose
+    @Column(name = "company")
     private String company;
+
     @Expose
+    @Column(name = "address")
+    @Type(type = "text")
     private String address;
+
     @Expose
+    @Column(name = "home")
+    @Type(type = "text")
     private String homePhone;
+
     @Expose
+    @Column(name = "mobile")
+    @Type(type = "text")
     private String mobilePhone;
+
     @Expose
+    @Column(name = "work")
+    @Type(type = "text")
     private String workPhone;
+
     @Expose
+    @Column(name = "fax")
+    @Type(type = "text")
     private String fax;
+
     @Expose
+    @Column(name = "email")
+    @Type(type = "text")
     private String email;
+
     @Expose
+    @Column(name = "email2")
+    @Type(type = "text")
     private String email2;
+
     @Expose
+    @Column(name = "email3")
+    @Type(type = "text")
     private String email3;
+
     @Expose
+    @Column(name = "homepage")
+    @Type(type = "text")
     private String homepage;
+
     @Expose
+    @Transient
     private String newgroup;
+
     @Expose
+    @Column(name = "address2")
+    @Type(type = "text")
     private String address2;
+
     @Expose
+    @Column(name = "phone2")
+    @Type(type = "text")
     private String phone2;
+
     @Expose
+    @Column(name = "notes")
+    @Type(type = "text")
     private String notes;
+
+    @Transient
     private String allPhones;
+    @Transient
+    private String allEmails;
+
+    @Transient
+    //@Column(name = "photo")
+    //@Type(type = "text")
+    private String photo;
 
     public String getAllEmails() {
         return allEmails;
@@ -60,18 +142,14 @@ public class ContactData {
         return  this;
     }
 
-    private String allEmails;
-
-    public File getPhoto() {
-        return photo;
+    /*public File getPhoto() {
+        return new File(photo);
     }
 
     public ContactData withPhoto(File photo) {
-        this.photo = photo;
+        this.photo = photo.getPath();
         return this;
-    }
-
-    private File photo;
+    }*/
 
     public String getAllPhones() {
         return allPhones;
@@ -184,21 +262,6 @@ public class ContactData {
 
     public int getId() {
         return id;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return id == that.id &&
-                Objects.equals(firstname, that.firstname) &&
-                Objects.equals(lastname, that.lastname);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstname, lastname);
     }
 
     @Override

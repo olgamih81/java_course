@@ -50,6 +50,7 @@
         <property name="cache.region.factory_class">org.hibernate.cache.infinispan.InfinispanRegionFactory</property> -->
 
         <mapping class="ru.stqa.course.addressbook.model.GroupData"/>
+        <mapping class="ru.stqa.course.addressbook.model.ContactData"/>
     </session-factory>
 
 </hibernate-configuration>
