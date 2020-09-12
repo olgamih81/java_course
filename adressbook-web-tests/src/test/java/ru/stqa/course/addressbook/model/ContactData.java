@@ -34,23 +34,6 @@ public class ContactData {
     @Column(name = "nickname")
     private String nickname;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return id == that.id &&
-                Objects.equals(firstname, that.firstname) &&
-                Objects.equals(middlename, that.middlename) &&
-                Objects.equals(lastname, that.lastname) &&
-                Objects.equals(nickname, that.nickname);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstname, middlename, lastname, nickname);
-    }
-
     @Expose
     @Column(name = "title")
     private String tittle;
@@ -132,6 +115,37 @@ public class ContactData {
     //@Column(name = "photo")
     //@Type(type = "text")
     private String photo;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id &&
+                Objects.equals(firstname, that.firstname) &&
+                Objects.equals(middlename, that.middlename) &&
+                Objects.equals(lastname, that.lastname) &&
+                Objects.equals(nickname, that.nickname) &&
+                Objects.equals(tittle, that.tittle) &&
+                Objects.equals(company, that.company) &&
+                Objects.equals(address, that.address) &&
+                Objects.equals(homePhone, that.homePhone) &&
+                Objects.equals(mobilePhone, that.mobilePhone) &&
+                Objects.equals(workPhone, that.workPhone) &&
+                Objects.equals(fax, that.fax) &&
+                Objects.equals(email, that.email) &&
+                Objects.equals(email2, that.email2) &&
+                Objects.equals(email3, that.email3) &&
+                Objects.equals(homepage, that.homepage) &&
+                Objects.equals(address2, that.address2) &&
+                Objects.equals(phone2, that.phone2) &&
+                Objects.equals(notes, that.notes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstname, middlename, lastname, nickname, tittle, company, address, homePhone, mobilePhone, workPhone, fax, email, email2, email3, homepage, address2, phone2, notes);
+    }
 
     public String getAllEmails() {
         return allEmails;

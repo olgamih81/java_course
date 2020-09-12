@@ -16,7 +16,9 @@
     "email3": "test@Email3 0",
     "homepage": "testHomepage 0",
     "newgroup": "TestGroupName1",
-    "phone2": "444-44-40"
+    "address2": "test Address2 0",
+    "phone2": "444-44-40",
+    "notes": "test Notes 0"
   },
   {
     "firstname": "testFirstname 1",
@@ -35,7 +37,9 @@
     "email3": "test@Email3 1",
     "homepage": "testHomepage 1",
     "newgroup": "TestGroupName1",
-    "phone2": "444-44-41"
+    "address2": "test Address2 1",
+    "phone2": "444-44-41",
+    "notes": "test Notes 1"
   },
   {
     "firstname": "testFirstname 2",
@@ -54,6 +58,8 @@
     "email3": "test@Email3 2",
     "homepage": "testHomepage 2",
     "newgroup": "TestGroupName1",
-    "phone2": "444-44-42"
+    "address2": "test Address2 2",
+    "phone2": "444-44-42",
+    "notes": "test Notes 2"
   }
 ]

@@ -95,6 +95,8 @@ public class ContactDateGenerator {
             .withEmail3(String.format("test@Email3 %s", i))
             .withCompany(String.format("testCompany %s", i))
             .withFax(String.format("testFax %s", i))
+            .withAddress2(String.format("test Address2 %s", i))
+            .withNotes(String.format("test Notes %s", i))
             );
         }
         return contacts;
