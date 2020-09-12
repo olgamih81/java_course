@@ -7,7 +7,9 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @XStreamAlias("contact")
 @Entity
@@ -87,9 +89,9 @@ public class ContactData {
     @Type(type = "text")
     private String homepage;
 
-    @Expose
+    /*@Expose
     @Transient
-    private String newgroup;
+    private String newgroup;*/
 
     @Expose
     @Column(name = "address2")
@@ -115,6 +117,11 @@ public class ContactData {
     //@Column(name = "photo")
     //@Type(type = "text")
     private String photo;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "address_in_groups", joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private Set<GroupData> groups = new HashSet<GroupData>();
 
     @Override
     public boolean equals(Object o) {
@@ -144,7 +151,8 @@ public class ContactData {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstname, middlename, lastname, nickname, tittle, company, address, homePhone, mobilePhone, workPhone, fax, email, email2, email3, homepage, address2, phone2, notes);
+        return Objects.hash(id, firstname, middlename, lastname, nickname, tittle, company, address,
+                homePhone, mobilePhone, workPhone, fax, email, email2, email3, homepage, address2, phone2, notes);
     }
 
     public String getAllEmails() {
@@ -253,12 +261,12 @@ public class ContactData {
         this.homepage = homepage;
         return this;
     }
-
+/*
     public ContactData withNewgroup(String newgroup) {
         this.newgroup = newgroup;
         return this;
     }
-
+*/
     public ContactData withAddress2(String address2) {
         this.address2 = address2;
         return this;
@@ -346,11 +354,11 @@ public class ContactData {
     public String getHomepage() {
         return homepage;
     }
-
+/*
     public String getNewgroup() {
         return newgroup;
     }
-
+*/
     public String getAddress2() {
         return address2;
     }
@@ -361,5 +369,14 @@ public class ContactData {
 
     public String getNotes() {
         return notes;
+    }
+
+    public Groups getGroups() {
+        return new Groups(groups);
+    }
+
+    public ContactData inGroup(GroupData group) {
+        groups.add(group);
+        return this;
     }
 }

@@ -1,10 +1,13 @@
 package ru.stqa.course.addressbook.tests;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.course.addressbook.model.ContactData;
 import ru.stqa.course.addressbook.model.Contacts;
+import ru.stqa.course.addressbook.model.GroupData;
+import ru.stqa.course.addressbook.model.Groups;
 
 import java.io.*;
 import java.util.Iterator;
@@ -30,9 +33,20 @@ public class ContactCreationTest extends TestBase {
       return contacts.stream().map((c) -> new Object[] {c}).collect(Collectors.toList()).iterator();
     }
   }
+  @BeforeMethod
+  public void ensurePreconditions() {
+    if (app.db().groups().size() == 0) {
+      app.goTo().groupPage();
+      app.group().create(new GroupData().withName("TestGroupName1"));
+    }
+  }
 
   @Test (dataProvider = "validContactJson")
   public void testContactCreation(ContactData contact) throws Exception {
+    Groups groups = app.db().groups();
+
+
+    ContactData newContact = contact.inGroup(groups.iterator().next());
     app.contact().home();
     Contacts before = app.db().contacts();
     //Contacts before = app.contact().all();
@@ -40,7 +54,7 @@ public class ContactCreationTest extends TestBase {
     //File photo = new File("src/test/resources/rabbit.jpg");
     //System.out.println(photo.getAbsolutePath());
 
-    app.contact().create(contact);
+    app.contact().create(newContact);
     assertThat(app.contact().count(), equalTo(before.size() + 1));
     //Contacts after = app.contact().all();
     Contacts after = app.db().contacts();

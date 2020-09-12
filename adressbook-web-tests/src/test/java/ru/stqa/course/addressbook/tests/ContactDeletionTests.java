@@ -19,7 +19,8 @@ public class ContactDeletionTests extends TestBase {
                     withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withPhone2("444").
                     withFax("test_fax").withEmail("test_email").withEmail2("test_email2").withEmail3("test_email3").
                     withHomepage("test_homepage").withAddress2("test_address2").
-                    withNewgroup("TestGroupName1").withNotes("test_notes"));
+                    //withNewgroup("TestGroupName1").
+                    withNotes("test_notes"));
         }
     }
 

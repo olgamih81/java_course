@@ -89,7 +89,7 @@ public class ContactDateGenerator {
             .withMobilePhone(String.format("222 22 2%s", i))
             .withWorkPhone(String.format("333333%s", i))
             .withPhone2(String.format("444-44-4%s", i))
-            .withNewgroup(String.format("TestGroupName1"))
+            //.withNewgroup(String.format("TestGroupName1"))
             .withEmail(String.format("test@Email %s", i))
             .withEmail2(String.format("test@Email2 %s", i))
             .withEmail3(String.format("test@Email3 %s", i))
