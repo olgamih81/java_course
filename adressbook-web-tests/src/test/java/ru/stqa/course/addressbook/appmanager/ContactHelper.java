@@ -203,5 +203,19 @@ public class ContactHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
+  public void addingContactToGroup(ContactData addingContact) {
+    selectedContactById(addingContact.getId());
+    addTo();
+    //returnToContactPage();
+    returnToGroupPageContact();
+  }
+
+  private void returnToGroupPageContact() {
+    click(By.linkText("group page \"TestGroupName1\""));
+  }
+
+  private void addTo() {
+    click(By.name("add"));
+  }
 }
 
