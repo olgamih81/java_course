@@ -203,19 +203,40 @@ public class ContactHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
-  public void addingContactToGroup(ContactData addingContact) {
+  public void addingContactToGroup(ContactData addingContact, int groupId, String groupName) {
     selectedContactById(addingContact.getId());
-    addTo();
-    //returnToContactPage();
+    click(By.name("to_group"));
+    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(groupName);
+    wd.findElement(By.cssSelector(String.format("option[value='%s']", groupId))).click();
+    wd.findElement(By.name(("add"))).click();
+
+    //selectToGroup(groupId, groupName);
     returnToGroupPageContact();
   }
 
-  private void returnToGroupPageContact() {
-    click(By.linkText("group page \"TestGroupName1\""));
+  public void returnToGroupPageContact() {
+    click(By.linkText("home"));
   }
 
   private void addTo() {
     click(By.name("add"));
   }
+
+  public void selectAllGroupsInContact() {
+    click(By.name("group"));
+    new Select(wd.findElement(By.name("group"))).selectByVisibleText("[all]");
+    click(By.xpath("//option[@value='']"));
+
+  }
+
+  public void selectToGroup(int groupId, String groupName) {
+    click(By.name("to_group"));
+    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText("Тест1");
+    //var x = wd.findElement(By.cssSelector(String.format("option[value='%s']", groupId)));
+    click(By.cssSelector(String.format("option[value='%s']", groupId)));
+    //wd.findElement(By.xpath("(//option[@value='176'])[2]")).click();
+    wd.findElement(By.name(("add"))).click();
+  }
+
 }
 
