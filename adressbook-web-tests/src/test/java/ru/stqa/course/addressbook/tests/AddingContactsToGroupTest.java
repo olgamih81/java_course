@@ -52,26 +52,21 @@ public class AddingContactsToGroupTest extends TestBase{
         int groupId = 0;
         String groupName = null;
 
-        if (contactGroup.size() > 0) {
-            while (groupId == 0) {
-                if ((contactGroup.size() != groups.size())) {
-                    Optional<GroupData> selectedGroup = groups.stream()
-                            .filter(g -> !contactGroup.contains(g))
-                            .findFirst();
-                    System.out.println(selectedGroup);
-                    groupId = selectedGroup.get().getId();
-                    groupName = selectedGroup.get().getName();
+        while (groupId == 0) {
+            if ((contactGroup.size() != groups.size())) {
+                Optional<GroupData> selectedGroup = groups.stream()
+                        .filter(g -> !contactGroup.contains(g))
+                        .findFirst();
+                System.out.println(selectedGroup);
+                groupId = selectedGroup.get().getId();
+                groupName = selectedGroup.get().getName();
 
-                } else {
-                    System.out.println("добавляем новую группу");
-                    addNewGroup();
-                    groups = app.db().groups();
-                    app.contact().returnToGroupPageContact();
-                }
+            } else {
+                System.out.println("добавляем новую группу");
+                addNewGroup();
+                groups = app.db().groups();
+                app.contact().returnToGroupPageContact();
             }
-        } else {
-            groupId = groups.stream().findFirst().get().getId();
-            groupName = groups.stream().findFirst().get().getName();
         }
         app.contact().addingContactToGroup(contact, groupId, groupName); // не работает :_(
 
