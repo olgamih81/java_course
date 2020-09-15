@@ -1,7 +1,5 @@
 package ru.stqa.course.addressbook.tests;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.course.addressbook.model.ContactData;
@@ -11,7 +9,6 @@ import ru.stqa.course.addressbook.model.Groups;
 import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class AddingContactsToGroupTest extends TestBase{
@@ -26,8 +23,7 @@ public class AddingContactsToGroupTest extends TestBase{
                     withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withPhone2("444").
                     withFax("test_fax").withEmail("test_email").withEmail2("test_email2").withEmail3("test_email3").
                     withHomepage("test_homepage").withAddress2("test_address2").
-                    //withNewgroup("TestGroupName1").
-                            withNotes("test_notes"));
+                    withNotes("test_notes"));
         }
     }
 
@@ -50,7 +46,6 @@ public class AddingContactsToGroupTest extends TestBase{
         Groups contactGroup = contact.getGroups();
 
         int groupId = 0;
-        String groupName = null;
 
         while (groupId == 0) {
             if ((contactGroup.size() != groups.size())) {
@@ -59,7 +54,6 @@ public class AddingContactsToGroupTest extends TestBase{
                         .findFirst();
                 System.out.println(selectedGroup);
                 groupId = selectedGroup.get().getId();
-                groupName = selectedGroup.get().getName();
 
             } else {
                 System.out.println("добавляем новую группу");
@@ -68,9 +62,16 @@ public class AddingContactsToGroupTest extends TestBase{
                 app.contact().returnToGroupPageContact();
             }
         }
-        app.contact().addingContactToGroup(contact, groupId, groupName); // не работает :_(
+        app.contact().addingContactToGroup(contact, groupId);
 
-        Groups contactGroupAfter = contact.getGroups();
+        Groups contactGroupAfter = app.db().contacts()
+                .stream()
+                .filter(c -> c.getId() == contact.getId())
+                .findFirst()
+                .get()
+                .getGroups();
+
+
         assertThat(contactGroupAfter.size(), equalTo(contactGroup.size()+1));
     }
 

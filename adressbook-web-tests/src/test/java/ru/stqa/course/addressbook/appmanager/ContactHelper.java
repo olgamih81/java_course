@@ -203,14 +203,12 @@ public class ContactHelper extends HelperBase {
     return wd.findElements(By.name("selected[]")).size();
   }
 
-  public void addingContactToGroup(ContactData addingContact, int groupId, String groupName) {
+  public void addingContactToGroup(ContactData addingContact, int groupId) {
     selectedContactById(addingContact.getId());
     click(By.name("to_group"));
-    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(groupName);
-    wd.findElement(By.cssSelector(String.format("option[value='%s']", groupId))).click();
+    System.out.println(Integer.toString(groupId));
+    new Select(wd.findElement(By.name("to_group"))).selectByValue(Integer.toString(groupId));
     wd.findElement(By.name(("add"))).click();
-
-    //selectToGroup(groupId, groupName);
     returnToGroupPageContact();
   }
 
@@ -225,18 +223,8 @@ public class ContactHelper extends HelperBase {
   public void selectAllGroupsInContact() {
     click(By.name("group"));
     new Select(wd.findElement(By.name("group"))).selectByVisibleText("[all]");
-    click(By.xpath("//option[@value='']"));
+    //click(By.xpath("//option[@value='']"));
 
   }
-
-  public void selectToGroup(int groupId, String groupName) {
-    click(By.name("to_group"));
-    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText("Тест1");
-    //var x = wd.findElement(By.cssSelector(String.format("option[value='%s']", groupId)));
-    click(By.cssSelector(String.format("option[value='%s']", groupId)));
-    //wd.findElement(By.xpath("(//option[@value='176'])[2]")).click();
-    wd.findElement(By.name(("add"))).click();
-  }
-
 }
 
