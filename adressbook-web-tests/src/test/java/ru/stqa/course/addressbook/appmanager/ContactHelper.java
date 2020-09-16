@@ -17,7 +17,7 @@ public class ContactHelper extends HelperBase {
     super(wd);
   }
 
-  public void returnToContactPage() {
+  public void returnToContactHomePage() {
     click(By.linkText("home page"));
   }
 
@@ -116,7 +116,7 @@ public class ContactHelper extends HelperBase {
     fillAnniversary("18", "December", "2020");
     submitContact();
     contactCache = null;
-    returnToContactPage();
+    returnToContactHomePage();
   }
 
   public void modify(ContactData contact) {
@@ -125,7 +125,7 @@ public class ContactHelper extends HelperBase {
     fillContactForm(contact, false);
     updateContact();
     contactCache = null;
-    returnToContactPage();
+    returnToContactHomePage();
   }
 
   public void delete(ContactData contact) {
@@ -206,25 +206,26 @@ public class ContactHelper extends HelperBase {
   public void addingContactToGroup(ContactData addingContact, int groupId) {
     selectedContactById(addingContact.getId());
     click(By.name("to_group"));
-    System.out.println(Integer.toString(groupId));
     new Select(wd.findElement(By.name("to_group"))).selectByValue(Integer.toString(groupId));
     wd.findElement(By.name(("add"))).click();
-    returnToGroupPageContact();
+    //returnToPageContact();
+    home();
   }
 
-  public void returnToGroupPageContact() {
-    click(By.linkText("home"));
-  }
-
-  private void addTo() {
-    click(By.name("add"));
-  }
-
-  public void selectAllGroupsInContact() {
+  public void filtrAllGroups() {
     click(By.name("group"));
     new Select(wd.findElement(By.name("group"))).selectByVisibleText("[all]");
-    //click(By.xpath("//option[@value='']"));
+  }
 
+  public void filtrSelectedGroup(int groupId) {
+    click(By.name("group"));
+    new Select(wd.findElement(By.name("group"))).selectByValue(Integer.toString(groupId));
+  }
+
+  public void deletedContactFromGroup(ContactData deletedContact, int groupId) {
+    selectedContactById(deletedContact.getId());
+    click(By.name("remove"));
+    home();
   }
 }
 

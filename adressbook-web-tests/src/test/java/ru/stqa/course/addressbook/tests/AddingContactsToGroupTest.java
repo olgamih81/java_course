@@ -31,12 +31,13 @@ public class AddingContactsToGroupTest extends TestBase{
     public void ensurePreconditionsGroup() {
         if (app.db().groups().size() == 0) {
             addNewGroup();
+            app.contact().home();
         }
     }
 
     @BeforeMethod
     public void selectAllGroups() {
-        app.contact().selectAllGroupsInContact(); //вынести в before
+        app.contact().filtrAllGroups(); //вынести в before
     }
 
     @Test
@@ -54,12 +55,11 @@ public class AddingContactsToGroupTest extends TestBase{
                         .findFirst();
                 System.out.println(selectedGroup);
                 groupId = selectedGroup.get().getId();
-
             } else {
                 System.out.println("добавляем новую группу");
                 addNewGroup();
                 groups = app.db().groups();
-                app.contact().returnToGroupPageContact();
+                app.contact().home();
             }
         }
         app.contact().addingContactToGroup(contact, groupId);

@@ -89,9 +89,9 @@ public class ContactData {
     @Type(type = "text")
     private String homepage;
 
-    /*@Expose
+    @Expose
     @Transient
-    private String newgroup;*/
+    private String newgroup;
 
     @Expose
     @Column(name = "address2")
@@ -261,12 +261,12 @@ public class ContactData {
         this.homepage = homepage;
         return this;
     }
-/*
+
     public ContactData withNewgroup(String newgroup) {
         this.newgroup = newgroup;
         return this;
     }
-*/
+
     public ContactData withAddress2(String address2) {
         this.address2 = address2;
         return this;
@@ -354,11 +354,11 @@ public class ContactData {
     public String getHomepage() {
         return homepage;
     }
-/*
+
     public String getNewgroup() {
         return newgroup;
-    }
-*/
+}
+
     public String getAddress2() {
         return address2;
     }
