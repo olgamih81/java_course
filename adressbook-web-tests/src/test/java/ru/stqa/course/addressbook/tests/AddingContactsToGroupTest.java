@@ -6,6 +6,7 @@ import ru.stqa.course.addressbook.model.ContactData;
 import ru.stqa.course.addressbook.model.GroupData;
 import ru.stqa.course.addressbook.model.Groups;
 
+import java.util.Iterator;
 import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.*;
@@ -42,31 +43,41 @@ public class AddingContactsToGroupTest extends TestBase{
 
     @Test
     public void testAddingContactsToGroup() {
-        ContactData contact = app.db().contacts().iterator().next();
         Groups groups = app.db().groups();
-        Groups contactGroup = contact.getGroups();
-
+        ContactData contact = null;
+        Groups contactGroup = null;
         int groupId = 0;
 
+        Iterator<ContactData> contactDataIterator = app.db().contacts().iterator();
+
         while (groupId == 0) {
-            if ((contactGroup.size() != groups.size())) {
-                Optional<GroupData> selectedGroup = groups.stream()
-                        .filter(g -> !contactGroup.contains(g))
-                        .findFirst();
-                System.out.println(selectedGroup);
-                groupId = selectedGroup.get().getId();
-            } else {
-                System.out.println("добавляем новую группу");
+            if (contactDataIterator.hasNext()) {
+                contact = contactDataIterator.next();
+                contactGroup = contact.getGroups();
+
+                if (contactGroup.size() != groups.size()) {
+                    Groups finalContactGroup = contactGroup;
+                    Optional<GroupData> selectedGroup = groups.stream()
+                            .filter(g -> !finalContactGroup.contains(g))
+                            .findFirst();
+                    groupId = selectedGroup.get().getId();
+                }
+            }
+            else {
                 addNewGroup();
                 groups = app.db().groups();
+                contactDataIterator = app.db().contacts().iterator();
                 app.contact().home();
             }
         }
+        //добавляем контакт в группу
         app.contact().addingContactToGroup(contact, groupId);
 
+        // проверка добавления контакта в группы
+        ContactData finalContact = contact;
         Groups contactGroupAfter = app.db().contacts()
                 .stream()
-                .filter(c -> c.getId() == contact.getId())
+                .filter(c -> c.getId() == finalContact.getId())
                 .findFirst()
                 .get()
                 .getGroups();

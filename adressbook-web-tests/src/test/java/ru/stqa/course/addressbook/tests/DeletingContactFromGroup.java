@@ -1,16 +1,16 @@
 package ru.stqa.course.addressbook.tests;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.course.addressbook.model.ContactData;
 import ru.stqa.course.addressbook.model.GroupData;
 import ru.stqa.course.addressbook.model.Groups;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Optional;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class DeletingContactFromGroup extends TestBase{
 
@@ -46,9 +46,9 @@ public class DeletingContactFromGroup extends TestBase{
     @Test
     public void testDeletingContactFromGroup() {
         ContactData contact = null;
-        ContactData cn = null;
         Groups contactGroup = null;
         int groupId = 0;
+        Groups groups = app.db().groups();
 
         Iterator<ContactData> contactDataIterator = app.db().contacts().iterator();
 
@@ -56,15 +56,18 @@ public class DeletingContactFromGroup extends TestBase{
         while (contactGroup == null) {
 
             if (contactDataIterator.hasNext()) {
-                cn = contactDataIterator.next();
-                if (cn.getGroups().size() > 0) {
-                    contact = cn;
+                contact = contactDataIterator.next();
+                if (contact.getGroups().size() > 0) {
                     contactGroup = contact.getGroups();
-                    System.out.println(contactGroup);
                 }
             } else {
-                createContact(cn);
-                contactDataIterator = app.db().contacts().iterator();
+                groupId = groups.stream().findFirst().get().getId();
+                app.contact().addingContactToGroup(contact, groupId);
+                ContactData finalContact = contact;
+                contactGroup = app.db().contacts().stream().
+                        filter(c -> c.getId() == finalContact.getId()).
+                        findFirst().get().getGroups();
+                break;
             }
         }
 
@@ -76,11 +79,17 @@ public class DeletingContactFromGroup extends TestBase{
         // удаляем контакт из группы
         app.contact().deletedContactFromGroup(contact, groupId);
 
-    }
-    private void createContact(ContactData cn) {
-        Groups groups = app.db().groups();
-        ContactData newContact = cn.inGroup(groups.iterator().next());
-        app.contact().create(newContact);
+        // проверка удаления контакта из группы
+        ContactData finalContact = contact;
+        Groups contactGroupAfter = app.db().contacts()
+                .stream()
+                .filter(c -> c.getId() == finalContact.getId())
+                .findFirst()
+                .get()
+                .getGroups();
+
+
+        assertThat(contactGroupAfter.size(), equalTo(contactGroup.size()-1));
 
     }
 }
