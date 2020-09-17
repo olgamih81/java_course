@@ -1,0 +1,38 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.testng:testng:7.1.0'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.0.0-alpha-6'
+    compile 'org.hamcrest:java-hamcrest:2.0.0.0'
+}
+
+task testContacts(type : Test) {
+    useTestNG{
+        suites 'src/test/resources/testng-contacts.xml'
+    }
+
+    if (project.hasProperty("browser")) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty("target")) {
+        systemProperty 'target', "${target}"
+    }
+}
+
+
+test {
+    useTestNG{
+        suites 'src/test/resources/testng.xml'
+    }
+
+    if (project.hasProperty("browser")) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty("target")) {
+        systemProperty 'target', "${target}"
+    }
+}
