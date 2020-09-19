@@ -19,7 +19,7 @@ public class ApplicationManager {
     private RegistrationHelper registrationHelper;
     private FtpHelper ftp;
     private MailHelper mailHelper;
-    private PasswordChangeHelper passwordChange;
+    private LoginHelper loginAdmin;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -82,10 +82,14 @@ public class ApplicationManager {
         return mailHelper;
     }
 
-    public PasswordChangeHelper passwordChange() {
-        if (passwordChange == null) {
-            passwordChange = new PasswordChangeHelper(this);
+    public LoginHelper login() {
+        if (loginAdmin == null) {
+            loginAdmin = new LoginHelper(this);
         }
-        return passwordChange;
+        return loginAdmin;
+    }
+
+    public NavigationHelper navigation() {
+        return new NavigationHelper(this);
     }
 }

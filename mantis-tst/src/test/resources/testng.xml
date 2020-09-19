@@ -6,6 +6,7 @@
             <class name="ru.stqa.course.mantis.tests.LoginTests"/>
             <class name="ru.stqa.course.mantis.tests.RegistrationTests"/>
             <class name="ru.stqa.course.mantis.tests.TestPasswordChange"/>
+            <class name="ru.stqa.course.mantis.tests.HbConnectionTest"/>
         </classes>
     </test>
 </suite>

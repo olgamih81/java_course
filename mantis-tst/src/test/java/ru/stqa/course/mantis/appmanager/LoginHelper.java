@@ -2,9 +2,9 @@ package ru.stqa.course.mantis.appmanager;
 
 import org.openqa.selenium.By;
 
-public class PasswordChangeHelper extends HelperBase {
+public class LoginHelper extends HelperBase {
 
-    public PasswordChangeHelper(ApplicationManager app) {
+    public LoginHelper(ApplicationManager app) {
         super(app);
     }
 

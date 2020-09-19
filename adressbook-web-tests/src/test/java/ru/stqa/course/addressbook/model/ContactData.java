@@ -6,7 +6,6 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.io.File;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;

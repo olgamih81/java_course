@@ -13,7 +13,9 @@ public class TestPasswordChange extends TestBase{
 
     @Test
     public void testPasswordChange() {
-        app.passwordChange().loginAdmin();
+        app.login().loginAdmin();
+        app.navigation().menuManagement();
+        app.navigation().menuUsers();
     }
 
     @AfterMethod(alwaysRun = true)
