@@ -15,7 +15,7 @@ public class DbHelper {
 
     private final SessionFactory sessionFactory;
 
-    public DbHelper() {
+    public DbHelper(ApplicationManager app) {
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure() // configures settings from hibernate.cfg.xml
                 .build();
@@ -25,7 +25,8 @@ public class DbHelper {
     public Users users() {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        List<UserData> result = session.createQuery( "from UserData where username!='administrator" ).list();
+        //List<UserData> result = session.createQuery( "from UserData where username!='administrator'" ).list();
+        List<UserData> result = session.createQuery( "from UserData where username!='administrator'" ).list();
         session.getTransaction().commit();
         session.close();
         return new Users(result);

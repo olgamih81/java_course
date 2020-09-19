@@ -12,11 +12,11 @@ import ru.stqa.course.mantis.model.UserData;
 import java.util.List;
 
 
-public class HbConnectionTest {
+public class HbConnectionTest extends TestBase{
     private SessionFactory sessionFactory;
 
     @BeforeClass
-    protected void setUp() throws Exception {
+    public void setUp() {
         // A SessionFactory is set up once for an application!
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure() // configures settings from hibernate.cfg.xml
@@ -37,11 +37,16 @@ public class HbConnectionTest {
     public void testHbConnection() {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        List<UserData> result = session.createQuery( "from UserData" ).list();
+        List<UserData> result = session.createQuery( "from UserData where username!='administrator'" ).list();
         for ( UserData user : result ) {
             System.out.println(user.getUsername());
         }
+
+        //app.db().users();
+        //System.out.println(i);
         session.getTransaction().commit();
         session.close();
     }
+
+
 }
