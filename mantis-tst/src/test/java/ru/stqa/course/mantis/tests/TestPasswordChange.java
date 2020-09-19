@@ -6,6 +6,8 @@ import org.testng.annotations.Test;
 import ru.stqa.course.mantis.model.UserData;
 import ru.stqa.course.mantis.model.Users;
 
+import javax.mail.MessagingException;
+import java.io.IOException;
 import java.util.Iterator;
 
 public class TestPasswordChange extends TestBase{
@@ -16,17 +18,20 @@ public class TestPasswordChange extends TestBase{
     }
 
     @Test
-    public void testPasswordChange() {
+    public void testPasswordChange() throws IOException, MessagingException {
         Users users  = app.db().users();
-        //Iterator<UserData> userDataIterator = users.iterator();
         UserData user = users.iterator().next();
+
         int userId = user.getId();
+        String userName = user.getUsername();
+        String userEmail = user.getEmail();
 
         app.login().loginAdmin();
         app.navigation().menuManagement();
         app.navigation().menuUsers();
         app.navigation().selectUser(userId);
         app.navigation().resetPassword();
+        app.mail().confirmationMessage(userEmail);
     }
 
     @AfterMethod(alwaysRun = true)

@@ -19,12 +19,17 @@ public class NavigationHelper extends HelperBase {
 
     public void selectUser(int userId) {
         click(By.cssSelector(String.format("a[href='manage_user_edit_page.php?user_id=%s'", userId)));
-        //manage_user_edit_page.php?user_id=3
     }
 
     public void resetPassword() {
         WebElement form = wd.findElement(By.id("manage-user-reset-form"));
-        WebElement button = form.findElement(By.cssSelector("input[type='submit']")); 
+        WebElement button = form.findElement(By.cssSelector("input[type='submit']"));
         button.click();
     }
+
+    public void getNewMail(String confirmationLink) {
+        wd.get(confirmationLink);
+        System.out.println("LINK TO NEW PASSWORD: " + confirmationLink + " !!!!!!!!");
+    }
+
 }
