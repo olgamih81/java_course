@@ -7,12 +7,13 @@ import ru.lanwen.verbalregex.VerbalExpression;
 import ru.stqa.course.mantis.model.MailMessage;
 
 import javax.mail.MessagingException;
+import javax.xml.rpc.ServiceException;
 import java.io.IOException;
 import java.util.List;
 
 import static org.testng.Assert.*;
 
-public class RegistrationTests extends TestBase{
+public class RegistrationTests extends TestBase {
 
     @BeforeMethod
     public void startMailServer() {
@@ -20,7 +21,9 @@ public class RegistrationTests extends TestBase{
     }
 
     @Test
-    public void testRegistration() throws IOException, MessagingException {
+    public void testRegistration() throws IOException, MessagingException, ServiceException {
+
+        skipIfNotFixed(Integer.parseInt("soap.issueId"));
         long now = System.currentTimeMillis();
         String user = String.format("user%s", now);
         String password = "password";

@@ -1,15 +1,13 @@
 package ru.stqa.course.mantis.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.course.mantis.model.UserData;
 import ru.stqa.course.mantis.model.Users;
-
 import javax.mail.MessagingException;
+import javax.xml.rpc.ServiceException;
 import java.io.IOException;
-import java.util.Iterator;
 
 import static org.testng.Assert.assertTrue;
 
@@ -21,7 +19,9 @@ public class TestPasswordChange extends TestBase{
     }
 
     @Test
-    public void testPasswordChange() throws IOException, MessagingException {
+    public void testPasswordChange() throws IOException, MessagingException, ServiceException {
+
+        skipIfNotFixed(Integer.parseInt("soap.issueId"));
         Users users  = app.db().users();
         UserData user = users.iterator().next();
 
