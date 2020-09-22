@@ -3,7 +3,9 @@
 <suite name="Suite1" verbose="1" >
     <test name="Rest" >
         <classes>
-            <class name="ru.stqa.course.rest.RestTests"/>
+            <class name="ru.stqa.course.rest.tests.RestTests"/>
+            <class name="ru.stqa.course.rest.tests.RestTestsAssure"/>
+            <class name="ru.stqa.course.rest.tests.TestBase"/>
         </classes>
     </test>
 </suite>
