@@ -22,7 +22,7 @@ public class TestBase {
     }
 
     public boolean isIssueOpen(int issueId) throws RemoteException, ServiceException, MalformedURLException {
-        var issueStatus = app.soap().getIssue(issueId).getId();
+        var issueStatus = app.soap().getIssue(issueId).getStatus();
         if (issueStatus == 80 || issueStatus == 90) {
             return false;
         }
