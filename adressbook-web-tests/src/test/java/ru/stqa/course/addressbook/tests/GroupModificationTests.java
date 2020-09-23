@@ -20,7 +20,6 @@ public class GroupModificationTests extends TestBase {
 
     @Test
     public void testGroupModifacation() {
-        //Groups before = app.group().all();    //получение списка групп из web
         Groups before = app.db().groups();      // получение списка групп из bd
         GroupData modifiedGroup = (GroupData) before.iterator().next();
         GroupData group = new GroupData().
@@ -29,7 +28,6 @@ public class GroupModificationTests extends TestBase {
         app.goTo().groupPage();
         app.group().modify(group);
         assertThat(app.group().count(), equalTo(before.size()));
-        //Groups after = app.group().all();
         Groups after = app.db().groups();
 
         assertThat(after, equalTo(before.withOut(modifiedGroup).withAdded(group)));
