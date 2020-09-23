@@ -40,26 +40,5 @@
     "address2": "test Address2 1",
     "phone2": "444-44-41",
     "notes": "test Notes 1"
-  },
-  {
-    "firstname": "testFirstname 2",
-    "middlename": "testMiddlename 2",
-    "lastname": "testLastname 2",
-    "nickname": "testNickname 2",
-    "tittle": "testTittle 2",
-    "company": "testCompany 2",
-    "address": "testAddress 2",
-    "homePhone": "111-11-12",
-    "mobilePhone": "222 22 22",
-    "workPhone": "3333332",
-    "fax": "testFax 2",
-    "email": "test@Email 2",
-    "email2": "test@Email2 2",
-    "email3": "test@Email3 2",
-    "homepage": "testHomepage 2",
-    "newgroup": "TestGroupName1",
-    "address2": "test Address2 2",
-    "phone2": "444-44-42",
-    "notes": "test Notes 2"
   }
 ]

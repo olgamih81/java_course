@@ -35,7 +35,6 @@ task testContacts(type : Test) {
     }
 }*/
 
-
 task testGroups(type : Test) {
     useTestNG{
         suites 'src/test/resources/testng-groups.xml'
