@@ -38,6 +38,8 @@ public class ApplicationManager {
 
         DbHelper = new DbHelper();
 
+        // test test
+
         if ("".equals(properties.getProperty("selenium.server"))) {
             if (browser.equals(BrowserType.FIREFOX)) {
                 wd = new FirefoxDriver();
