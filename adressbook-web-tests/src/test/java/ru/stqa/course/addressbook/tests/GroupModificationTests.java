@@ -7,7 +7,7 @@ import ru.stqa.course.addressbook.model.Groups;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
-//модификация выьранной группы
+//модификация выбранной группы
 public class GroupModificationTests extends TestBase {
 
     @BeforeMethod
