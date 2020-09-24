@@ -21,7 +21,7 @@ dependencies {
     implementation 'org.hibernate:hibernate-core:5.4.21.Final'
 }
 
-/*
+
 task testContacts(type : Test) {
     useTestNG{
         suites 'src/test/resources/testng-contacts.xml'
@@ -33,7 +33,7 @@ task testContacts(type : Test) {
     if (project.hasProperty("target")) {
         systemProperty 'target', "${target}"
     }
-}*/
+}
 
 task testGroups(type : Test) {
     useTestNG{
