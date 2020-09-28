@@ -9,7 +9,7 @@ import ru.stqa.course.addressbook.appmanager.ApplicationManager;
 
 import java.lang.reflect.Method;
 
-@Listeners(MyTestListener.class)
+//@Listeners(MyTestListener.class)
 public class TestBase {
 
     Logger logger = LoggerFactory.getLogger(TestBase.class);
