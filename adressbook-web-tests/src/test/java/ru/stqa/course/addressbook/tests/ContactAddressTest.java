@@ -8,6 +8,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 
 public class ContactAddressTest extends TestBase{
+    //test start selenium
     @BeforeMethod
     public void ensurePreconditions() {
         if (app.db().contacts().size() == 0) {
