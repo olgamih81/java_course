@@ -31,10 +31,6 @@ public class MyTestListener implements ITestListener {
     public void onTestSkipped(ITestResult result) {
     }
 
-/*    @Override
-    public void onTestFailedButWithinSuccessPersentage(ITestResult result) {
-    }*/
-
     @Override
     public void onStart(ITestContext context) {
     }
