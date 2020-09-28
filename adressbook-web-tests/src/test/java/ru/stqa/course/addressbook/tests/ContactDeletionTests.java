@@ -8,6 +8,7 @@ import ru.stqa.course.addressbook.model.Contacts;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 
+//test dell
 public class ContactDeletionTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
