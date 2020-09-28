@@ -17,9 +17,9 @@ public class TestBase {
     protected static final ApplicationManager app = new ApplicationManager(System.getProperty("browser", BrowserType.FIREFOX));
 
     @BeforeSuite(alwaysRun = true)
-    public void setUp(ITestContext context) throws Exception {
+    public void setUp() throws Exception {
         app.init();
-        context.setAttribute("app", app);
+        //context.setAttribute("app", app);
     }
 
     @AfterSuite(alwaysRun = true)
