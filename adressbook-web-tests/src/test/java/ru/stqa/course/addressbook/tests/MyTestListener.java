@@ -15,13 +15,13 @@ public class MyTestListener implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult result) {
     }
-/*
+
     @Override
     public void onTestFailure(ITestResult result) {
-        ApplicationManager app = (ApplicationManager) result.getTestContext().getAttribute("app");
-        saveScreenshot(app.takeScreenshot());
+   //     ApplicationManager app = (ApplicationManager) result.getTestContext().getAttribute("app");
+   //     saveScreenshot(app.takeScreenshot());
     }
-
+/*
     @Attachment(value = "Page screenshot", type = "image/png")
     public byte[] saveScreenshot(byte[] screenShot) {
         return screenShot;
