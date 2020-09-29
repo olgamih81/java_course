@@ -47,10 +47,8 @@ public class ContactCreationTest extends TestBase {
     ContactData newContact = contact.inGroup(groups.iterator().next());
     app.contact().home();
     Contacts before = app.db().contacts();
-
     //File photo = new File("src/test/resources/rabbit.jpg");
     //System.out.println(photo.getAbsolutePath());
-
     app.contact().create(newContact);
     assertThat(app.contact().count(), equalTo(before.size() + 1));
     Contacts after = app.db().contacts();
