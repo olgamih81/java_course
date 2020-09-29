@@ -17,9 +17,11 @@
         <property name="hibernate.connection.password"></property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.hbm2ddl.auto">validate</property>
+
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
         <property name="cache.provider_class">org.hibernate.cache.internal.NoCachingRegionFactory</property>
+        
 
         <mapping class="ru.stqa.course.addressbook.model.GroupData"/>
         <mapping class="ru.stqa.course.addressbook.model.ContactData"/>
