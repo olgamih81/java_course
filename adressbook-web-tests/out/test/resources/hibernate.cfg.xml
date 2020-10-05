@@ -17,37 +17,11 @@
         <property name="hibernate.connection.password"></property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.hbm2ddl.auto">validate</property>
+
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
         <property name="cache.provider_class">org.hibernate.cache.internal.NoCachingRegionFactory</property>
 
-        <!-- <property name="hibernate.connection.pool_size">5</property>
-		<property name="hibernate.c3p0.min_size">50</property>
-		<property name="hibernate.c3p0.max_size">800</property>
-		<property name="hibernate.c3p0.max_statements">50</property>
-		<property name="hibernate.jdbc.batch_size">10</property>
-		<property name="hibernate.c3p0.timeout">300</property>
-		<property name="hibernate.c3p0.idle_test_period">3000</property>
-		<property name="hibernate.c3p0.testConnectionOnCheckout">true</property> -->
-
-        <!-- <property name="hibernate.connection.pool_size">5</property>
-        <property name="hibernate.jdbc.batch_size">10</property>
-        <property name="hibernate.connection.provider_class">proxool</property>
-        <property name="hibernate.proxool.properties">pool-one.properties</property>
-        <property name="hibernate.proxool.pool_alias">pool-one</property> -->
-
-        <!-- <property name="hibernate.cache.region_prefix">hibernate.test</property>
-        <property name="cache.use_query_cache">true</property>
-        <property name="cache.use_second_level_cache">true</property>
-        <property name="cache.use_structured_entries">true</property>
-        <property name="cache.region.factory_class">org.hibernate.cache.EhCacheRegionFactory</property>
-        <property name="net.sf.ehcache.configurationResourceName">file:///[PATH]/unmanaged-jpa/src/main/resources/ehcache.xml</property> -->
-
-        <!-- <property name="hibernate.cache.region_prefix">hibernate.test</property>
-		<property name="cache.use_query_cache">true</property>
-        <property name="cache.use_second_level_cache">true</property>
-        <property name="cache.use_structured_entries">true</property>
-        <property name="cache.region.factory_class">org.hibernate.cache.infinispan.InfinispanRegionFactory</property> -->
 
         <mapping class="ru.stqa.course.addressbook.model.GroupData"/>
         <mapping class="ru.stqa.course.addressbook.model.ContactData"/>

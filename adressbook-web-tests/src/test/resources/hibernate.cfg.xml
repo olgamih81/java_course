@@ -21,7 +21,7 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
         <property name="cache.provider_class">org.hibernate.cache.internal.NoCachingRegionFactory</property>
-        
+
 
         <mapping class="ru.stqa.course.addressbook.model.GroupData"/>
         <mapping class="ru.stqa.course.addressbook.model.ContactData"/>

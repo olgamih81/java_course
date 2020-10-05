@@ -35,7 +35,6 @@ public class ContactModificationTests extends TestBase {
                 withHomePhone("111-11").withMobilePhone("222-22").withWorkPhone("333-33").withPhone2("444-44").
                 withFax("test_fax2").withEmail("test_email2").withEmail2("test_email22").withEmail3("test_email32").
                 withHomepage("test_homepage2").withAddress2("test_address22").
-                //withNewgroup("TestGroupName1").
                 withNotes("test_notes2");
         app.contact().modify(contact);
         assertThat(app.contact().count(), equalTo(before.size()));
